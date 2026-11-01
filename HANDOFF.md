@@ -38,7 +38,7 @@
 - 공지사항 관리자 글쓰기·수정 화면(plan/phase-1/11) 사용자 확인 → 수정 반영
 - 서비스 소개 11안(plan/phase-1/10)·움직임 5안(09)·Hallmark안(07) 사용자 확인 → 고를 안 정해서 다듬기
 - 빈 그림 칸 2곳(서비스 소개 첫 화면·콘텐츠 구역): 실제 와이즈리포트 화면 캡처 받으면 채우기
-- watch: 시작 때 뜬 "Python 3.10+ 필요" 경고 원인 확인 (Windows는 `py` 로 실행)
+- watch 경고 원인(2026-11-01 확인·조치, 집 PC): `python`이 윈도우 스토어 가짜 바로가기(WindowsApps)에 먼저 걸림 → 사용자 PATH에서 `%LOCALAPPDATA%\Python\bin` 을 WindowsApps 앞으로 옮김(원래 값 백업 `~/.claude/PATH-백업-20261101.txt`). Claude 다시 켠 뒤 경고 사라졌는지 확인, "setup needs attention" 뜨면 /watch 한 번 실행. 노트북·회사 PC도 같은 경고면 같은 조치
 - 나머지 컴퓨터 2대: 홈 저장소 `설치-안내.md`의 "새 컴퓨터 시작하기" 1~6 (사용자가 할 일)
 - VS Code 안에서 Claude 를 켰을 때 시작 폴더가 홈(my-projects)인지 확인 — 아니면 맞추기
 - 이후: 지금까지 페이지로 디자인시스템 구축 (01-상황.md)
