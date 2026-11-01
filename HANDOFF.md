@@ -1,21 +1,39 @@
 # HANDOFF — 이 파일은 clear 전에 항상 최신으로 덮어쓴다 (이 줄 포함)
 
+기준: 2026-11-01
+
 ## 현재 상태
-- 깃허브 연결(origin), 로컬 첫 커밋 "시작"만 있음. 아직 push 안 함.
+### 저장소
+- Design-Claude: 깃허브 morningjh-cpu/Design-Claude (공개 — 사용자 확인: 공개 문제없음) 에 push 완료, 로컬과 같음
+- 홈 저장소: ~/.claude/skills = 깃허브 morningjh-cpu/my-claude-home (비공개, 2026-11-01 my-claude-skills 에서 이름 변경). 스킬 + 공통설정 + 홈 파일 + 도구 + 저장소 목록. 상세는 그 저장소 `설치-안내.md`
+- 홈 `~/my-projects` 에서 claude-study·Design-Claude·FnGudie-BI-Manager 를 오가며 작업 (VS Code: my-projects.code-workspace)
+
+### 피그마 (파일 nRGwNoZ92JBOTFire7zK8P, 페이지 "17. 서비스 소개" 7698:35779)
 - 15. 공지사항: `디자인 변경 - 개선안` 구역(12540:5218) 완성 → plan/phase-1/02
-- 17. 서비스 소개: 새 화면 12542:600 완성, 글꼴 문제로 글자 3곳은 사용자가 직접 수정 필요 → plan/phase-1/03
-- 17. 서비스 소개 개선안 3종(A 12556:927 / B 12557:1131 / C 12559:1302) 완성 → plan/phase-1/04. 사용자 평: A 티 안 남, B 과함, C 매력 부족
-- 2차 4종(A2 12562:1472 / B2 12563:1676 / C2 12564:1846 / D 12565:2016) 완성 → plan/phase-1/05. 사용자 평: 여전히 별로
-- 3차 5종(① 12568:2015 / ② 12569:2342 / ③ 12570:2669 / ④ 12571:2996 / ⑤ 12572:3323) 기준 화면 복제해 완성, 사용자 검토 대기 → plan/phase-1/06
-- 사용자 수정본 "서비스 소개- 수정버전3" 12568:2015 → Hallmark 리디자인 12577:3650 완성 → plan/phase-1/07
-- 스킬 사용설명서 Skills-list/ (00 상황별 찾기, 01~12) 완성 → plan/phase-1/08
+- 17. 서비스 소개 기준 화면 12542:600 (기획안 수정 반영) → plan/phase-1/03
+- 개선안 1차 A/B/C, 2차 A2/B2/C2/D, 3차 ①~⑤ → plan/phase-1/04~06 (1·2차 평: 별로)
+- 사용자가 3차 ①안을 고쳐 "서비스 소개- 수정버전3" 12568:2015 (x=6868)로 둠
+- 그걸 Hallmark 기준으로 리디자인 → "서비스 소개- 수정버전3 (Hallmark)" 12577:3650 (x=8988), 사용자 검토 대기 → plan/phase-1/07
+
+### 스킬
+- 설치·설명서: Skills-list/ (설치한-스킬-목록, 00 상황별 찾기, 01~15) → plan/phase-1/08
+- 플러그인 9개(figma, frontend-design, hallmark, superpowers, ponytail, karpathy, humanize-korean, korean-skills, commit-commands) + 개별 5개(docx, impeccable, taste-skill, ui-ux-pro-max, find-skills)
+- 이 폴더에서는 ponytail 자동 꺼짐(.claude/settings.json)
+- 스킬 설치 시 규칙: CLAUDE.md 참고 (목록·설명서·상황별 표·개인 스킬 저장소 함께 갱신)
 
 ## 다음 할 일
-- 사용자 확인 후 수정 반영
+- Hallmark 리디자인(12577:3650) 사용자 확인 → 수정 반영
+- 빈 그림 칸 2곳(첫 화면·콘텐츠 구역): 실제 와이즈리포트 화면 캡처 받으면 채우기
+- 다른 컴퓨터(집 PC·노트북): 홈 저장소 `설치-안내.md`의 "새 컴퓨터 시작하기" 1~5 (사용자가 할 일)
 - 이후: 지금까지 페이지로 디자인시스템 구축 (01-상황.md)
 
+## 남은 정리
+- `.taste-skill/` 임시 폴더: 커밋 제외(.gitignore) 처리만 함, 폴더는 남아 있음
+
 ## 교훈
-- Wanted Sans Variable 글꼴은 피그마 작업 도구에서 불러올 수 없음 (PC에 설치·피그마 재시작 후에도 안 보임, 2026-10-31 확인. 고정 굵기 7종(Regular~ExtraBlack) 추가 설치 후 재확인해도 0개) → 그 글꼴 글자는 사용자가 손으로 고치거나 Noto Sans KR 글자를 복제해 씀
-- 단, Wanted Sans 부품(버튼·상단바 등)을 통째로 복제해 배치하는 건 됨 → 문구가 같으면 복제해서 쓰기
-- Wanted Sans 글자도 rescale(비율 키우기)·색·폭 변경은 됨. 정렬·자동 크기 변경은 안 됨 → 기준 화면을 복제해서 고치는 게 글꼴을 살리는 길
+- Wanted Sans Variable 글꼴은 피그마 작업 도구에서 불러올 수 없음 (설치·재시작 후에도 0개) → 글자 내용·정렬은 사용자가 손으로
+- Wanted Sans 부품·글자를 통째로 복제하는 건 됨. 복제한 글자도 rescale(비율)·색·폭 변경은 됨 → 기준 화면을 복제해서 고치는 게 글꼴을 살리는 길
 - 변수 색을 입힐 때 기본색을 실제 값으로 넣어야 화면 캡처에서 색이 안 틀어짐
+- resize()는 자동 크기를 고정으로 바꿈 → 뒤에 다시 AUTO/HUG. 가로 배치 틀은 세로 크기가 counterAxis 쪽
+- 개선안은 "티는 나되 과하지 않게", 기획안에 없는 버튼·문구·가짜 예시 금지
+- Hallmark·taste-skill은 웹 코드용 → 피그마에서는 점검 기준·방향 뽑기로만
