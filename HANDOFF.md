@@ -22,12 +22,14 @@
 - 설치·설명서: Skills-list/ (설치한-스킬-목록, 00 상황별 찾기, 01~16) → plan/phase-1/08
 - 플러그인 10개(figma, frontend-design, hallmark, superpowers, ponytail, karpathy, humanize-korean, korean-skills, commit-commands, watch) + 개별 5개(docx, impeccable, taste-skill, ui-ux-pro-max, find-skills)
 - 이 폴더에서는 ponytail 자동 꺼짐(.claude/settings.json)
+- 2026-11-01 watch(claude-video, 유튜브·영상 보고 요약) 설치 + FFmpeg·yt-dlp·Deno(winget). 점검 결과 ready. 자막 없는 영상용 받아쓰기는 설정 안 함 → Skills-list/16-watch.md
 - 스킬 설치 시 규칙: CLAUDE.md 참고 (목록·설명서·상황별 표·개인 스킬 저장소 함께 갱신)
 
 ## 다음 할 일
 - Hallmark 리디자인(12577:3650) 사용자 확인 → 수정 반영
 - 빈 그림 칸 2곳(첫 화면·콘텐츠 구역): 실제 와이즈리포트 화면 캡처 받으면 채우기
-- 나머지 컴퓨터 2대: 홈 저장소 `설치-안내.md`의 "새 컴퓨터 시작하기" 1~5 (사용자가 할 일)
+- 나머지 컴퓨터 2대: 홈 저장소 `설치-안내.md`의 "새 컴퓨터 시작하기" 1~6 (watch 플러그인·영상 프로그램 3개 포함, 사용자가 할 일)
+- watch 첫 사용: Claude 다시 켠 뒤 `/watch:watch (유튜브 주소)` 로 잘 되는지 확인
 - VS Code 안에서 Claude 를 켰을 때 시작 폴더가 홈(my-projects)인지 확인 — 아니면 맞추기
 - 이후: 지금까지 페이지로 디자인시스템 구축 (01-상황.md)
 
