@@ -23,10 +23,9 @@
 
 ### 스킬
 - 설치·설명서: 홈 저장소 ~/.claude/skills/Skills-list/ (2026-11-01 이 저장소에서 옮김) (설치한-스킬-목록, 00 상황별 찾기, 01~17) → plan/phase-1/08
-- 플러그인 11개(figma, frontend-design, hallmark, superpowers, ponytail, karpathy, humanize-korean, korean-skills, commit-commands, watch, motionsites-web-builder) + 개별 5개
+- 플러그인 10개(figma, frontend-design, hallmark, superpowers, karpathy, humanize-korean, korean-skills, commit-commands, watch, motionsites-web-builder) + 개별 5개
 - MotionSites(motionsites-web-builder): 홈 저장소 공통설정 settings.json 에만 추가됨. 집 PC(Morning-Home) 설치 완료, 설명서 ~/.claude/skills/Skills-list/17-motionsites.md·목록·00 표 반영(2026-11-01). 노트북·회사 PC는 켤 때 '안 깔린 플러그인' 알림이 뜨면 설치
 - PC 자동 연동(2026-11-01): Claude 켤 때 홈 저장소 `도구/시작.sh` 가 PC 종류 확인(`컴퓨터-목록.md`, 집 PC=Morning-Home) → 설정 적용 → 일 저장소 모두 최신 받기 → 회사 PC에서만 깃랩 연결 → 빠진 플러그인 알림. 상세는 홈 저장소 설치-안내.md 2번(docx, impeccable, taste-skill, ui-ux-pro-max, find-skills)
-- 이 폴더에서는 ponytail 자동 꺼짐(.claude/settings.json)
 - 2026-11-01 watch(claude-video, 유튜브·영상 보고 요약) 설치 + FFmpeg·yt-dlp·Deno(winget). 점검 결과 ready. 자막 없는 영상용 받아쓰기는 설정 안 함 → ~/.claude/skills/Skills-list/16-watch.md
 - 스킬 설치 시 규칙: CLAUDE.md 참고 (목록·설명서·상황별 표·개인 스킬 저장소 함께 갱신)
 
