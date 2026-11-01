@@ -10,6 +10,9 @@
 - claude-study: 옛 vibe-codding-practice 를 이름 변경·비공개 전환, 클로드 공부 + 연습(vibe-coding/) 합침. 옛 폴더는 `~/my-projects/_trash/`
 - 2026-11-01 세 저장소(홈·claude-study·Design-Claude) 모두 push 완료. 이 컴퓨터 git 기본 작성자 = morningjh-cpu
 - 공통설정 첫 적용 때 이 컴퓨터의 옛 `~/.claude/CLAUDE.md`·`settings.json` 은 `.백업-20261101-*` 로 남김
+- 전역 규칙: "츳"(한글 자판으로 친 cmt)도 cmt 와 같음 — 커밋+push
+- VS Code 커밋 버튼 누르면 자동 올리기(`git.postCommitCommand: sync`) — 이 컴퓨터 VS Code 설정 + 홈 작업공간 파일 둘 다
+- 2026-11-01 마지막 기준 세 저장소 모두 남은 변경 없이 GitHub 과 같음
 
 ### 피그마 (파일 nRGwNoZ92JBOTFire7zK8P, 페이지 "17. 서비스 소개" 7698:35779)
 - 15. 공지사항: `디자인 변경 - 개선안` 구역(12540:5218) 완성 → plan/phase-1/02
