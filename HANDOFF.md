@@ -6,7 +6,10 @@
 ### 저장소
 - Design-Claude: 깃허브 morningjh-cpu/Design-Claude (공개 — 사용자 확인: 공개 문제없음) 에 push 완료, 로컬과 같음
 - 홈 저장소: ~/.claude/skills = 깃허브 morningjh-cpu/my-claude-home (비공개, 2026-11-01 my-claude-skills 에서 이름 변경). 스킬 + 공통설정 + 홈 파일 + 도구 + 저장소 목록. 상세는 그 저장소 `설치-안내.md`
-- 홈 `~/my-projects` 에서 claude-study·Design-Claude·FnGudie-BI-Manager 를 오가며 작업 (VS Code: my-projects.code-workspace)
+- 홈 `~/my-projects` 에서 claude-study·Design-Claude·FnGudie-BI-Manager 를 오가며 작업 (VS Code: my-projects.code-workspace, 첫 폴더 = 🏠 홈)
+- claude-study: 옛 vibe-codding-practice 를 이름 변경·비공개 전환, 클로드 공부 + 연습(vibe-coding/) 합침. 옛 폴더는 `~/my-projects/_trash/`
+- 2026-11-01 세 저장소(홈·claude-study·Design-Claude) 모두 push 완료. 이 컴퓨터 git 기본 작성자 = morningjh-cpu
+- 공통설정 첫 적용 때 이 컴퓨터의 옛 `~/.claude/CLAUDE.md`·`settings.json` 은 `.백업-20261101-*` 로 남김
 
 ### 피그마 (파일 nRGwNoZ92JBOTFire7zK8P, 페이지 "17. 서비스 소개" 7698:35779)
 - 15. 공지사항: `디자인 변경 - 개선안` 구역(12540:5218) 완성 → plan/phase-1/02
@@ -16,15 +19,16 @@
 - 그걸 Hallmark 기준으로 리디자인 → "서비스 소개- 수정버전3 (Hallmark)" 12577:3650 (x=8988), 사용자 검토 대기 → plan/phase-1/07
 
 ### 스킬
-- 설치·설명서: Skills-list/ (설치한-스킬-목록, 00 상황별 찾기, 01~15) → plan/phase-1/08
-- 플러그인 9개(figma, frontend-design, hallmark, superpowers, ponytail, karpathy, humanize-korean, korean-skills, commit-commands) + 개별 5개(docx, impeccable, taste-skill, ui-ux-pro-max, find-skills)
+- 설치·설명서: Skills-list/ (설치한-스킬-목록, 00 상황별 찾기, 01~16) → plan/phase-1/08
+- 플러그인 10개(figma, frontend-design, hallmark, superpowers, ponytail, karpathy, humanize-korean, korean-skills, commit-commands, watch) + 개별 5개(docx, impeccable, taste-skill, ui-ux-pro-max, find-skills)
 - 이 폴더에서는 ponytail 자동 꺼짐(.claude/settings.json)
 - 스킬 설치 시 규칙: CLAUDE.md 참고 (목록·설명서·상황별 표·개인 스킬 저장소 함께 갱신)
 
 ## 다음 할 일
 - Hallmark 리디자인(12577:3650) 사용자 확인 → 수정 반영
 - 빈 그림 칸 2곳(첫 화면·콘텐츠 구역): 실제 와이즈리포트 화면 캡처 받으면 채우기
-- 다른 컴퓨터(집 PC·노트북): 홈 저장소 `설치-안내.md`의 "새 컴퓨터 시작하기" 1~5 (사용자가 할 일)
+- 나머지 컴퓨터 2대: 홈 저장소 `설치-안내.md`의 "새 컴퓨터 시작하기" 1~5 (사용자가 할 일)
+- VS Code 안에서 Claude 를 켰을 때 시작 폴더가 홈(my-projects)인지 확인 — 아니면 맞추기
 - 이후: 지금까지 페이지로 디자인시스템 구축 (01-상황.md)
 
 ## 남은 정리
