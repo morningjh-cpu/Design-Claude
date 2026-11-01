@@ -1,45 +1,45 @@
 # HANDOFF — 이 파일은 clear 전에 항상 최신으로 덮어쓴다 (이 줄 포함)
 
-기준: 2026-11-01
+기준: 2026-11-01 (마지막 작업: 집 PC Morning-Home)
 
 ## 현재 상태
 ### 저장소
-- Design-Claude: 깃허브 morningjh-cpu/Design-Claude (공개 — 사용자 확인: 공개 문제없음) 에 push 완료, 로컬과 같음
-- 홈 저장소: ~/.claude/skills = 깃허브 morningjh-cpu/my-claude-home (비공개, 2026-11-01 my-claude-skills 에서 이름 변경). 스킬 + 공통설정 + 홈 파일 + 도구 + 저장소 목록. 상세는 그 저장소 `설치-안내.md`
+- Design-Claude: 깃허브 morningjh-cpu/Design-Claude (공개 — 사용자 확인: 공개 문제없음). 2026-11-01 마지막 커밋 78c5846 까지 push 완료, 로컬과 같음
+- 홈 저장소: ~/.claude/skills = 깃허브 morningjh-cpu/my-claude-home (비공개). 스킬 + 공통설정 + 홈 파일 + 도구 + 저장소 목록. 상세는 그 저장소 `설치-안내.md`. 2026-11-01 45ef30e(전역 규칙 "선택지는 한글로") push 완료
 - 홈 `~/my-projects` 에서 claude-study·Design-Claude·FnGudie-BI-Manager 를 오가며 작업 (VS Code: my-projects.code-workspace, 첫 폴더 = 🏠 홈)
 - claude-study: 옛 vibe-codding-practice 를 이름 변경·비공개 전환, 클로드 공부 + 연습(vibe-coding/) 합침. 옛 폴더는 `~/my-projects/_trash/`
-- 2026-11-01 세 저장소(홈·claude-study·Design-Claude) 모두 push 완료. 이 컴퓨터 git 기본 작성자 = morningjh-cpu
-- 공통설정 첫 적용 때 이 컴퓨터의 옛 `~/.claude/CLAUDE.md`·`settings.json` 은 `.백업-20261101-*` 로 남김
-- 전역 규칙: "츳"(한글 자판으로 친 cmt)도 cmt 와 같음 — 커밋+push
+- 이 컴퓨터 git 기본 작성자 = morningjh-cpu. 공통설정 첫 적용 때 옛 `~/.claude/CLAUDE.md`·`settings.json` 은 `.백업-20261101-*` 로 남김
+- 전역 규칙: "cmt"·"츳"·"커밋" → 커밋+push. 질문 선택지는 한글로(2026-11-01 추가, 고유명만 영어)
 - VS Code 커밋 버튼 누르면 자동 올리기(`git.postCommitCommand: sync`) — 이 컴퓨터 VS Code 설정 + 홈 작업공간 파일 둘 다
-- 2026-11-01 마지막 기준 세 저장소 모두 남은 변경 없이 GitHub 과 같음
 
-### 피그마 (파일 nRGwNoZ92JBOTFire7zK8P, 페이지 "17. 서비스 소개" 7698:35779)
-- 15. 공지사항: `디자인 변경 - 개선안` 구역(12540:5218) 완성 → plan/phase-1/02
-- 15. 공지사항 관리자 글쓰기 12533:4810 을 기획안(12591:23369)대로 고침 + 수정 화면 12597:4241 (2026-11-01, 사용자 검토 대기) → plan/phase-1/11
-- 17. 서비스 소개 기준 화면 12542:600 (기획안 수정 반영) → plan/phase-1/03
+### 피그마 (파일 nRGwNoZ92JBOTFire7zK8P)
+**15. 공지사항/고객지원 (10394:30337)**
+- `디자인 변경 - 개선안` 구역(12540:5218) 완성 → plan/phase-1/02
+- 관리자 글쓰기 12533:4810 을 기획안(12591:23369)대로 고침(한 줄 배치·유형 펼친 목록·작성일 시각·편집칸 안 가이드·파일 삭제 버튼·취소/등록하기) + 수정 화면 12597:4241 (바로 아래) → plan/phase-1/11. 파일 이름 말풍선은 안 넣기로 함(사용자 결정). 사용자 검토 대기
+
+**17. 서비스 소개 (7698:35779)**
+- 기준 화면 12542:600 (기획안 수정 반영) → plan/phase-1/03
 - 개선안 1차 A/B/C, 2차 A2/B2/C2/D, 3차 ①~⑤ → plan/phase-1/04~06 (1·2차 평: 별로)
-- 사용자가 3차 ①안을 고쳐 "서비스 소개- 수정버전3" 12568:2015 (x=6868)로 둠
-- 그걸 Hallmark 기준으로 리디자인 → "서비스 소개- 수정버전3 (Hallmark)" 12577:3650 (실제 위치 x=6868, y=4074 — 원본 아래), 사용자 검토 대기 → plan/phase-1/07
-- 사용자가 "수정버전3"(12568:2015) 이름을 "서비스 소개- 수정버전-20261101"로 바꾸고 PLUS 칸을 새로 바꿈
-- 2026-11-01 그걸 기준으로 움직임 없이 11안(단독 4 + 짝 6 + 네 스킬 1) → 새 줄 y=9000, 12592:3977~5727, 사용자 검토 대기 → plan/phase-1/10
-- 2026-11-01 수정버전3 기준 스킬별 4안 + 조합 1안 + 피그마 실제 움직임 → 원본 오른쪽 한 줄 12585:3977 · 4145 · 4313 · 4481 · 4649, 사용자 검토 대기 → plan/phase-1/09
+- 사용자가 3차 ①안을 고친 화면 12568:2015 — 지금 이름 "서비스 소개- 수정버전-20261101"(전 "수정버전3"), PLUS 칸은 사용자가 새로 바꿈(12588:8982)
+- Hallmark 리디자인 12577:3650 (x=6868, y=4074 — 원본 아래) → plan/phase-1/07
+- 스킬별 4안 + 조합 1안 + 피그마 실제 움직임: 원본 오른쪽 한 줄(y=-277) 12585:3977 · 4145 · 4313 · 4481 · 4649 → plan/phase-1/09
+- 움직임 없이 11안(단독 4 + 짝 6 + 네 스킬 1): 새 줄(y=9000) 12592:3977 ~ 12592:5727 → plan/phase-1/10
+- 위 세 묶음 모두 사용자 검토 대기
 
 ### 스킬
-- 설치·설명서: 홈 저장소 ~/.claude/skills/Skills-list/ (2026-11-01 이 저장소에서 옮김) (설치한-스킬-목록, 00 상황별 찾기, 01~17) → plan/phase-1/08
-- 플러그인 10개(figma, frontend-design, hallmark, superpowers, karpathy, humanize-korean, korean-skills, commit-commands, watch, motionsites-web-builder) + 개별 5개
-- MotionSites(motionsites-web-builder): 홈 저장소 공통설정 settings.json 에만 추가됨. 집 PC(Morning-Home) 설치 완료, 설명서 ~/.claude/skills/Skills-list/17-motionsites.md·목록·00 표 반영(2026-11-01). 노트북·회사 PC는 켤 때 '안 깔린 플러그인' 알림이 뜨면 설치
-- PC 자동 연동(2026-11-01): Claude 켤 때 홈 저장소 `도구/시작.sh` 가 PC 종류 확인(`컴퓨터-목록.md`, 집 PC=Morning-Home) → 설정 적용 → 일 저장소 모두 최신 받기 → 회사 PC에서만 깃랩 연결 → 빠진 플러그인 알림. 상세는 홈 저장소 설치-안내.md 2번(docx, impeccable, taste-skill, ui-ux-pro-max, find-skills)
-- 2026-11-01 watch(claude-video, 유튜브·영상 보고 요약) 설치 + FFmpeg·yt-dlp·Deno(winget). 점검 결과 ready. 자막 없는 영상용 받아쓰기는 설정 안 함 → ~/.claude/skills/Skills-list/16-watch.md
+- 설치·설명서: 홈 저장소 ~/.claude/skills/Skills-list/ (설치한-스킬-목록, 00 상황별 찾기, 01~17) → plan/phase-1/08
+- 플러그인 10개(figma, frontend-design, hallmark, superpowers, karpathy, humanize-korean, korean-skills, commit-commands, watch, motionsites-web-builder) + 개별 5개(docx, impeccable, taste-skill, ui-ux-pro-max, find-skills)
+- MotionSites: 집 PC 설치 완료. 노트북·회사 PC는 켤 때 '안 깔린 플러그인' 알림이 뜨면 설치
+- PC 자동 연동: Claude 켤 때 홈 저장소 `도구/시작.sh` 가 PC 종류 확인 → 설정 적용 → 일 저장소 최신 받기 → 회사 PC에서만 깃랩 연결 → 빠진 플러그인 알림
+- watch: 집 PC 설치·점검 ready. 이번 세션 시작 때 "Python 3.10+ 필요" 경고가 떴음 → 확인 필요 → ~/.claude/skills/Skills-list/16-watch.md
 - 스킬 설치 시 규칙: CLAUDE.md 참고 (목록·설명서·상황별 표·개인 스킬 저장소 함께 갱신)
 
 ## 다음 할 일
-- 11안(plan/phase-1/10) 사용자 확인 → 고를 안·수정 반영
-- 스킬별 5안(plan/phase-1/09) 사용자 확인 → 고를 안·수정 반영
-- Hallmark 리디자인(12577:3650) 사용자 확인 → 수정 반영
-- 빈 그림 칸 2곳(첫 화면·콘텐츠 구역): 실제 와이즈리포트 화면 캡처 받으면 채우기
-- 나머지 컴퓨터 2대: 홈 저장소 `설치-안내.md`의 "새 컴퓨터 시작하기" 1~6 (watch 플러그인·영상 프로그램 3개 포함, 사용자가 할 일)
-- watch 첫 사용: Claude 다시 켠 뒤 `/watch:watch (유튜브 주소)` 로 잘 되는지 확인
+- 공지사항 관리자 글쓰기·수정 화면(plan/phase-1/11) 사용자 확인 → 수정 반영
+- 서비스 소개 11안(plan/phase-1/10)·움직임 5안(09)·Hallmark안(07) 사용자 확인 → 고를 안 정해서 다듬기
+- 빈 그림 칸 2곳(서비스 소개 첫 화면·콘텐츠 구역): 실제 와이즈리포트 화면 캡처 받으면 채우기
+- watch: 시작 때 뜬 "Python 3.10+ 필요" 경고 원인 확인 (Windows는 `py` 로 실행)
+- 나머지 컴퓨터 2대: 홈 저장소 `설치-안내.md`의 "새 컴퓨터 시작하기" 1~6 (사용자가 할 일)
 - VS Code 안에서 Claude 를 켰을 때 시작 폴더가 홈(my-projects)인지 확인 — 아니면 맞추기
 - 이후: 지금까지 페이지로 디자인시스템 구축 (01-상황.md)
 
@@ -47,9 +47,12 @@
 - `.taste-skill/` 임시 폴더: 커밋 제외(.gitignore) 처리만 함, 폴더는 남아 있음
 
 ## 교훈
-- Wanted Sans Variable 글꼴은 피그마 작업 도구에서 불러올 수 없음 (설치·재시작 후에도 0개) → 글자 내용·정렬은 사용자가 손으로
-- Wanted Sans 부품·글자를 통째로 복제하는 건 됨. 복제한 글자도 rescale(비율)·색·폭 변경은 됨 → 기준 화면을 복제해서 고치는 게 글꼴을 살리는 길
-- 변수 색을 입힐 때 기본색을 실제 값으로 넣어야 화면 캡처에서 색이 안 틀어짐
+- Wanted Sans Variable 글꼴은 피그마 작업 도구에서 불러올 수 없음 → 글자 내용·정렬은 사용자가 손으로. 복제한 글자의 rescale(비율)·색·폭 변경은 됨 → 기준 화면을 복제해서 고치는 게 글꼴을 살리는 길
+- 공지사항 입력칸 부품의 '입력된 글자'도 없는 글꼴이라 못 바꿈 → 안내 글자 칸에 값을 넣고 색을 진하게
+- 피그마 작업 스크립트는 중간에 오류가 나면 통째로 되돌아감 → 다시 돌려도 겹치지 않음. 다만 사용자가 기준 화면을 고치면 부품 번호가 바뀌니 작업 전에 다시 확인
+- 맨 위 화면 틀 높이는 안쪽 container(고정 높이) 말고 푸터 아래끝 기준으로 맞춤. 세로 배치로 바꿀 때 "양끝 정렬"이면 간격이 0 → MIN으로
 - resize()는 자동 크기를 고정으로 바꿈 → 뒤에 다시 AUTO/HUG. 가로 배치 틀은 세로 크기가 counterAxis 쪽
-- 개선안은 "티는 나되 과하지 않게", 기획안에 없는 버튼·문구·가짜 예시 금지
-- Hallmark·taste-skill은 웹 코드용 → 피그마에서는 점검 기준·방향 뽑기로만
+- 변수 색을 입힐 때 기본색을 실제 값으로 넣어야 화면 캡처에서 색이 안 틀어짐
+- 피그마 움직임 기능은 이 파일에서 됨(키프레임). 다만 시간 기준이라 스크롤에 맞춰 나타나기는 못 함. 사용자는 움직임을 그만두기로 함(2026-11-01)
+- 개선안은 "티는 나되 과하지 않게", 기획안에 없는 버튼·문구·가짜 예시 금지. 고정 조건이 많으면 짝·조합안끼리 비슷해짐 → 미리 알림
+- Hallmark·taste-skill·impeccable 등은 웹 코드용 → 피그마에서는 점검 기준·방향 뽑기로만
