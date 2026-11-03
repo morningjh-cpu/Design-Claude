@@ -1,0 +1,48 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>디자인시스템 점검 3차</title>
+<style>
+:root{--bg:#f6f7f9;--panel:#fff;--ink:#1b1f24;--mute:#6b7280;--line:#e5e7eb;--accent:#4b3fd6;--ok:#2f855a;--warn:#b7791f;--bad:#c53030}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#111418;--panel:#1a1e24;--ink:#e6e8eb;--mute:#9aa3ae;--line:#2a3039}}
+:root[data-theme=dark]{--bg:#111418;--panel:#1a1e24;--ink:#e6e8eb;--mute:#9aa3ae;--line:#2a3039}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 "Pretendard","Noto Sans KR",system-ui,sans-serif}
+main{max-width:1080px;margin:0 auto;padding:32px 16px 80px}
+h1{font-size:24px;margin:0 0 4px}h2{font-size:17px;margin:36px 0 10px}.lead{color:var(--mute);margin:0 0 20px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.k{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}.k b{display:block;font-size:26px}.k small{color:var(--mute)}
+.wrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:640px}th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--mute);font-weight:600}code{font-size:12px;background:color-mix(in srgb,var(--accent) 10%,transparent);padding:1px 5px;border-radius:4px}
+.ok{color:var(--ok);font-weight:600}.warn{color:var(--warn);font-weight:600}.bad{color:var(--bad);font-weight:600}
+ol li{margin:6px 0}.note{color:var(--mute);font-size:13px}
+</style></head><body><main>
+<h1>디자인시스템 점검 3차</h1>
+<p class="lead">와이즈리포트 디자인시스템 테스트 파일 · 2026-11-03 · 공통 컴포넌트 구역 130개 · 보이는 레이어만</p>
+<div class="kpi">
+<div class="k"><small>점수 (어림)</small><b>81 / 100</b><small>1차 60 → 2차 69 → 3차 81</small></div>
+<div class="k"><small>색 저장값 연결</small><b>92%</b><small>직접 색 210 = 대부분 로고 고유색 · 끊긴 색 0</small></div>
+<div class="k"><small>간격 저장값 연결</small><b>97%</b><small>4,764 연결 · 직접 139 (대부분 아이콘 안)</small></div>
+<div class="k"><small>모서리 저장값 연결</small><b>42%</b><small>322 연결 · 직접 443</small></div>
+<div class="k"><small>글자 스타일</small><b>34개</b><small>부품 원본 글자 522개 연결 · 화면 1,409개 연결</small></div>
+<div class="k"><small>부품 설명 · name 칸</small><b>130 · 121</b><small>설명 전부 · 묶음 121개 모두 name 값 1개</small></div>
+</div>
+<p class="note">점수 기준(어림): 색 29/30 · 간격·모서리 15/20 · 글자 10/20 · 이름 일관성 13/15 · 상태·설명 14/15</p>
+
+<h2>2차 이후 바뀐 것</h2>
+<div class="wrap"><table><thead><tr><th>항목</th><th>2차</th><th>3차</th></tr></thead><tbody>
+<tr><td>간격</td><td class="warn">직접 1,288</td><td class="ok">가까운 값으로 맞춰 연결 → 직접 139 (아이콘 안 소수점·겹치기 -1)</td></tr>
+<tr><td>name 칸</td><td>정리 대상으로 봄</td><td class="ok">일부러 둔 식별용 칸 → 모든 묶음에 값 1개 (없던 26 추가, 여러 값 4 정리)</td></tr>
+<tr><td>글자 스타일</td><td class="bad">0 연결 · Noto Sans</td><td class="ok">Wanted Sans 로 바뀜 · 자간 스타일 10개 추가(tight · table) · 부품 522 + 화면 1,409 연결</td></tr>
+<tr><td>직접 검정</td><td>64 + 42 연결</td><td>그대로 · 남은 9곳 표시</td></tr>
+</tbody></table></div>
+
+<h2>남은 것</h2>
+<div class="wrap"><table><thead><tr><th>분류</th><th>지금 상태</th><th>할 수 있는 일</th></tr></thead><tbody>
+<tr><td>모서리</td><td class="warn">직접 443: 99(245) · 50(106) · 5(28) · 3(17) · 1(13) · 1000(8) · 9(7) · 81(6)</td><td>99·50·1000·81 은 "완전 둥근" 모양 → <code>radius-full</code> 연결 가능 (모양 그대로). 5·3·1·9 등은 간격처럼 가까운 값으로</td></tr>
+<tr><td>글자</td><td class="warn">보이는 부품 글자 658 중 211 연결</td><td>줄간격만 다른 글자는 결정대로 그대로. 맞는 스타일이 없는 조합(15 Medium, 13 Bold 등)은 분류 후 스타일 추가 여부 결정</td></tr>
+<tr><td>직접 색</td><td>210</td><td>대부분 회사·외부 로고 고유색 → 그대로 두는 것이 맞음</td></tr>
+<tr><td>끊긴 색 (저장값)</td><td>3</td><td><code>ic-gr</code> 1곳 · <code>tx-ddl-add</code> 2개 → 연결할 값 정하기</td></tr>
+<tr><td>라이브러리 발행</td><td>—</td><td>피그마에서 직접</td></tr>
+</tbody></table></div>
+<p class="note">숫자는 2026-11-03 피그마 파일을 읽어 센 값. 점수는 기준을 정해 매긴 어림값.</p>
+</main></body></html>

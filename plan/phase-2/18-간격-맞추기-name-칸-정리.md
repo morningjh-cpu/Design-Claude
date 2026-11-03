@@ -26,3 +26,9 @@
 - keyword-list: name=keyword-list 하나로, 구분은 type=keyword-list / favorite-add-title 로 옮김
 - searchbar-keyword-new: name=searchbar-keyword 하나로 (type 으로 이미 구분)
 - arrow-folter-down: name=arrow-folter-down 하나로 (status 로 이미 구분)
+
+## 모서리 연결 (점검 3차 뒤 사용자 "제안대로 진행해")
+- 공통 컴포넌트 구역: 완전히 둥근 모양(모서리 ≥ 짧은 변의 절반, 값 > 24) → radius-full 167곳 (50 88 · 99 65 · 1000 8 · 81 6) — 모양 그대로
+- 나머지는 가까운 값으로 맞춰 연결 46곳 (5→4 22 · 3→2 9 · 1→2 7 · 13→12 3 · 7→6 3 · 10.91→10 2), 같은 거리면 작은 쪽, 0 이 되면 2
+- 아이콘·로고 구역은 완전히 둥근 것만 연결, 나머지 소수 값(1·3·9·4.79·0.44·14.4 등) 그대로 → 보이는 레이어 기준 남은 직접 모서리 26곳 모두 아이콘 안
+- ic-gr: 이제 남은 곳 없음. icon/file 의 Icon 선은 사용자가 ic-ui(이 파일)로 연결해 둔 상태
