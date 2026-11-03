@@ -32,3 +32,9 @@
 - 나머지는 가까운 값으로 맞춰 연결 46곳 (5→4 22 · 3→2 9 · 1→2 7 · 13→12 3 · 7→6 3 · 10.91→10 2), 같은 거리면 작은 쪽, 0 이 되면 2
 - 아이콘·로고 구역은 완전히 둥근 것만 연결, 나머지 소수 값(1·3·9·4.79·0.44·14.4 등) 그대로 → 보이는 레이어 기준 남은 직접 모서리 26곳 모두 아이콘 안
 - ic-gr: 이제 남은 곳 없음. icon/file 의 Icon 선은 사용자가 ic-ui(이 파일)로 연결해 둔 상태
+
+## 낱개 부품 9개에 name 칸 (사용자 "낱개 부품 9개의 name칸 같은 이름으로 채워")
+- 낱개 부품을 종류 1개짜리 묶음으로 바꾸고 종류 이름 = name=<부품 이름 마지막 부분>, 묶음 이름·위치·설명은 원래대로
+- text-tooltip/best-analyst(name=best-analyst) · tag-best-analyst · text-label · dialog-header/dialog-body(name=dialog-body) · tab-solid · Icon/lock-report(name=lock-report) · wise-nodata · 🔽 · unit-text
+- 확인: 부품 속성(tab-solid 의 Tab 3~6 켜고 끄기) 그대로, 화면에 놓인 부품 수 그대로 (안 맞으면 전부 되돌리게 해 둠)
+- 공통 컴포넌트 구역 묶음 130개 모두 name 값 1개
