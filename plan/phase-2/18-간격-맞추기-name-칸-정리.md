@@ -38,3 +38,43 @@
 - text-tooltip/best-analyst(name=best-analyst) · tag-best-analyst · text-label · dialog-header/dialog-body(name=dialog-body) · tab-solid · Icon/lock-report(name=lock-report) · wise-nodata · 🔽 · unit-text
 - 확인: 부품 속성(tab-solid 의 Tab 3~6 켜고 끄기) 그대로, 화면에 놓인 부품 수 그대로 (안 맞으면 전부 되돌리게 해 둠)
 - 공통 컴포넌트 구역 묶음 130개 모두 name 값 1개
+
+## 간격 3 추가 (사용자 "간격 조정한 것에 수치 3을 넣어주도록해주고, 이전 피그마파일에서 간격이 3이었던 것들을 찾아서 적용해줘")
+- 저장값 `spacing/space-3` = 3 새로 만듦 (쓰임: 간격, 개발 이름 var(--space-3))
+- 공통 컴포넌트 구역에서 space-2 에 연결된 368곳을 백업 파일(읽기만)과 비교 → 백업에서 3이던 125곳(칸 213개)을 space-3 으로 다시 연결
+  - 부품: segment-filter-fixable · segment-filter-size · switch · scroll-bar · tooltip · menu-ui-icon · menu/menu-left · menu/menu-right
+  - 부품 속 겹친 부품 20곳은 원본을 따라 자동으로 3 이 됨
+- 백업에서 원래 2·1·0 이던 곳은 그대로 2
+- 백업에 없는 새 레이어 7개는 비교 못 함: checkbox hover 3개, switch xs hover 2개(14022:10003·10005 — 옆 switch xs 는 백업에서 위아래 3), dropdown-list-box 2개
+
+## 백업과 높이 비교 (사용자 "이전 컴포넌트와 간격 조정된 컴포넌트에 height 값이 다른 컴포넌트가 얼마나 되는지 찾아봐") — 읽기만
+- 공통 컴포넌트 구역 종류 679개 비교 (크기만 있는 아이콘·로고는 간격을 안 건드려서 뺌), 백업에 없는 새 종류 17개는 비교 못 함
+- 높이 다름 16개 / 부품 8개 (백업 → 지금): dropdown-list-box 233→238·243→249 · cell-data 46→45·64→63 · tag-keywords sm 26→24 (4) · dialog 184→183·147→146 · message-area 85→87·172→174·114→116 · modal-header confirm 60→56 · footer-area default 94→110
+- 너비 다름 12개 / 부품 5개: btn-uiform 145→141 · box-date-select 272→273 (5) · date-label 54→55 · input-select 230→228 (3) · check-list 63→65
+
+## 높이 원래대로 (사용자 "message-area와 dialog를 제외하고 원래 수치로 변경해줘. height를 hug가 아닌 fix 값으로")
+- 11개를 백업 높이로, 세로 크기 방식 내용 맞춤 → 고정: dropdown-list-box 3 (238→233·238→233·249→243) · cell-data 2 (45→46·63→64) · tag-keywords sm 4 (24→26) · modal-header confirm (56→60) · footer-area default (110→94)
+- 가로 크기 방식은 그대로 둠 (tag-keywords 는 가로 내용 맞춤 유지)
+- message-area 3 · dialog 2 는 그대로 (사용자)
+- 너비 다른 12개는 찾기만 함 (위 표)
+
+## 너비 원래대로 (사용자 "너비도 원래 수치로 고정해줘")
+- 12개를 백업 너비로, 가로 크기 방식 내용 맞춤 → 고정: box-date-select 5 (273→272) · input-select 3 (228→230) · btn-uiform 2 (141→145) · date-label (55→54) · check-list 1 (65→63, 6786:5034)
+- 세로 크기 방식은 그대로
+
+## 간격 18 추가 (사용자 "간격에 18과 20이 없어서 생긴거면 간격에 추가해주고, 영향 받았던 너비 값은 간격 적용해서 원래 값과 동일하면 fix를 hug로")
+- 20 은 이미 있음(space-20) → `spacing/space-18` = 18 만 새로 만듦
+- 공통 컴포넌트 구역 space-16 연결 169곳 중 백업에서 18 이던 14곳(21칸) → space-18: btn-ot-primary · btn-uiform · input-select · modal-header(아래 여백) · footer-area(위아래)
+- 너비 12개: 내용 맞춤으로 바꿔 원래 너비와 같은 10개는 내용 맞춤 — box-date-select 5 (272) · input-select 3 (230) · btn-uiform 2 (145)
+- 고정 유지 2개 (간격 1·30 이 원인이라 내용 맞춤이면 달라짐): date-label 54 (내용맞춤이면 55) · check-list 63 (65)
+
+## 높이 내용 맞춤 시도 (사용자 "높이도 원래 값과 같으면 hug로 바꿔줘")
+- 11개 모두 내용 맞춤이면 원래와 달라서 고정 유지: dropdown-list-box 233·233·243 (내용맞춤 238·238·249) · cell-data 46·64 (45·63) · tag-keywords 26 ×4 (24) · modal-header 60 (56) · footer-area 94 (114)
+
+## 높이 차이 원인 (백업 → 지금)
+- dropdown-list-box 줄 사이 1→2 (+5) · cell-data 위 13→12 · tag-keywords sm 위아래 5→4 · modal-header confirm 위 36→32
+- footer-area default: 안에 든 footer(home) 부품의 copyright 위 여백이 0→20 으로 덮어써져 있었음 (맞추기 작업 때문 아님)
+
+## footer copyright 위 여백 0 (사용자 "footer copyright 위 여백 0으로 되돌려줘")
+- footer-area type=default 안 copyright 위 여백 → 0 (space-0 연결). type=home 원본은 20 그대로
+- 높이가 내용 맞춤으로 94 (원래와 같음) → 세로 내용 맞춤으로 바꿈
