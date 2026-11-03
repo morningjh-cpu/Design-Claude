@@ -1,0 +1,175 @@
+# 어디에도 안 쓰인 색 저장값 172개 — 2026-11-03
+# 기준: 모든 페이지(가이드·보관 포함)의 채우기·테두리·효과 + 다른 저장값이 가리키는 것까지 확인. 이름은 바꾸지 않음(개발과 맞춘 이름)
+# 읽는 법: hover·disabled·selected 등 "상태" 이름이 많음 → 개발용으로 정해 뒀지만 디자인에 그 상태 화면이 없는 것일 수 있음(추측). "----" 붙은 것은 이미 안 쓰기로 표시한 것으로 보임(추측)
+semantic/table/bg-th
+semantic/table/bg-cell
+semantic/border/bd-segtab-----
+semantic/---- unused/bg-scroll-bar
+semantic/divider/divider-strong
+semantic/border/bd-select-hover---
+semantic/select/tx-select-placeholder-hover
+semantic/dropdown-list/bg-ddl-disabled
+semantic/dropdown-list/tx-ddl-disabled
+semantic/table/bg-cell-hover
+semantic/table/tx-cell-hover
+semantic/table/bg-th-accent
+semantic/table/bg-th-error
+semantic/table/bg-cell-accent
+semantic/table/tx-cell-accent
+semantic/dropdown-list/bg-ddl-disabled-hover
+semantic/dropdown-list/tx-ddl-disabled-hover
+semantic/border/bd-top-nav
+semantic/---- unused/bg-segtab-2
+semantic/menu/tx-gnbtab-hover
+semantic/menu/tx-gnbtab-unselected
+semantic/icon/ic-selected
+semantic/text/tx-sub-copy
+semantic/button/bg-btn-ot-tertiary----
+semantic/button/bg-btn-ot-tertiary-hover---
+semantic/button/bd-btn-ot-tertiary-hover---
+semantic/button/bd-btn-ot-tertiary----
+semantic/border/bd-disabled
+semantic/border/bd-card-unselected
+base/---- unused/fn-blue-70
+base/---- unused/fn-blue-20
+base/---- unused/fn-blue-40
+base/---- unused/fn-blue-10
+base/---- unused/fn-blue-150
+base/---- unused/fn-blue-30
+base/---- unused/fn-blue-950
+base/---- unused/fn-blue-1000
+semantic/menu/bg-nav-bar
+semantic/menu/bg-nav-bar-selected
+semantic/select/bg-uiform-hover
+semantic/select/bg-uiform-selected
+semantic/select/bg-uiform-selected-hover
+semantic/select/bg-uiform-disabled
+semantic/text/tx-title-hover
+semantic/dropdown-list/bg-ddl-box
+semantic/dropdown-list/tx-ddl-delete
+semantic/dropdown-list/bg-ddl-delete
+semantic/dropdown-list/tx-ddl-delete-hover
+semantic/dropdown-list/bg-ddl-delete-hover
+semantic/dropdown-list/tx-ddl-add
+semantic/dropdown-list/tx-ddl-unselected
+semantic/dropdown-list/tx-ddl-add-hover
+semantic/button/bg-btn-fill-warning
+semantic/button/tx-btn-fill-warning
+semantic/menu/bg-sidemenu-hover
+semantic/menu/bg-sidemenu-selected
+base/neutral/black
+base/neutral/gray-980
+base/sub/blue-140
+base/sub/blue-550
+semantic/button/bg-btn-secondary----
+semantic/button/bg-btn-unselected----
+semantic/button/bg-btn-disabled----
+semantic/button/bd-btn-ot-primary-light
+semantic/button/tx-btn-ot-primary-light
+semantic/icon/ic-ui-dark-hover
+semantic/table/tx-td-date
+semantic/text/tx-primary-unselected
+semantic/text/tx-primary-read
+base/neutral/gray-500-alpha-12
+base/neutral/gray-750-alpha-92
+base/---- unused/gray-900-alpha-45
+semantic/text/tx-caption-hover
+base/---- unused/fn-blue-600
+base/---- unused/fn-blue-800
+semantic/table/tx-td-data
+semantic/text/tx-linetab-disabled
+base/sub/indigo-900
+semantic/border/bd-summary
+semantic/background/bg-summary
+semantic/dropdown-list/bd-ddl-delete-hover
+semantic/background/bg-search-tag-1
+base/sub/orange-100
+semantic/border/bd-search-tag-3
+semantic/border/bd-search-tag-2
+semantic/border/bd-search-tag-1
+semantic/text/tx-blue
+base/sub/blue-30
+semantic/background/bg-search-tag-4
+semantic/border/bd-search-tag-3 2
+base/sub/blue-20
+semantic/background/bg-tab-hover
+semantic/---- unused/bg-segment-selected
+base/---- unused/fn-blue-45
+base/---- unused/amerald-200
+semantic/text/tx-bubble
+base/sub/amerald-250
+semantic/icon/ic-green
+base/sub/indigo-300
+base/sub/indigo-50
+base/---- unused/amerald-300
+base/sub/amerald-350
+base/---- unused/amerald-100
+base/---- unused/amerald-650
+base/---- unused/amerald-850
+base/---- unused/amerald-900
+base/sub/amerald-40
+semantic/icon/ic-select-selected
+semantic/icon/ic-select-selected-hover
+base/sub/amerald-10
+base/main/iris-navy-800
+base/main/iris-navy-600
+base/---- unused/navy-1000
+base/main/iris-navy-650
+semantic/menu/bd-sidemenu-selected
+base/main/iris-navy-40
+semantic/menu/tx-snb-hover
+semantic/background/bg-flash
+semantic/text/tx-flash
+semantic/---- unused/tx-segment-selected---
+semantic/select/bd-segbtn-selected
+semantic/select/bd-segbtn-unselected
+semantic/button/bd-btn-fill-primary
+semantic/button/bd-btn-fill-primary-hover
+semantic/button/bd-btn-fill-primary-disabled
+semantic/button/bd-btn-fill-secondary
+semantic/button/bd-btn-fill-secondary-hover
+semantic/button/bd-btn-fill-tertiary
+semantic/button/bd-btn-fill-tertiary-hover
+semantic/button/bg-btn-fill-tertiary-disabled
+semantic/button/bd-btn-ot-tertiary-disabled
+semantic/button/tx-btn-fill-tertiary-disabled
+semantic/button/tx-btn-ot-tertiary-hover
+semantic/button/tx-btn-ot-tertiary-disabled
+semantic/button/bd-btn-fill-secondary-disabled
+semantic/button/bd-btn-fill-tertiary-disabled
+semantic/button/bg-btn-unselected
+semantic/button/bg-btn-disabled
+semantic/button/tx-btn-disabled
+semantic/button/bd-tab-hover
+semantic/button/tx-tab-fill-primary
+semantic/button/bg-tab-selected
+semantic/button/bd-tab-selected
+semantic/background/bg-blur
+base/main/iris-450
+base/main/iris-350
+base/main/iris-150
+base/sub/green-50
+base/sub/turquoise-500
+base/sub/turquoise-50
+semantic/background/bg-info-1
+base/sub/vanilla-200
+semantic/background/bg-event-chip
+semantic/chip/cp-bg-violet-light
+semantic/chip/cp-dot-violet
+base/main/fn-red-300
+semantic/background/bg-table-accent-hover
+semantic/divider/divider-gray
+semantic/chart/cat-bg-01
+semantic/chart/cat-bg-02
+semantic/chart/cat-bg-03
+semantic/chart/cat-bg-04
+semantic/chart/cat-bg-05
+semantic/chart/cat-bg-07
+semantic/chart/cat-bg-08
+semantic/chart/cat-bg-09
+semantic/chart/cat-bg-10
+semantic/chart/cat-bg-11
+semantic/chart/cat-bg-06
+semantic/background/bg-card-pinned
+semantic/border/bd-card-pinned
+base/sub/red-50

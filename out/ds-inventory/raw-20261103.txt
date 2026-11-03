@@ -1,0 +1,333 @@
+# 와이즈리포트 디자인시스템 테스트 (HxECyUsoLnDxoSWSKophQn) 부품 전수 조사 원자료 — 2026-11-03
+# 칸: id|이름|페이지번호|S=세트 C=낱개|종류수|화면에서 쓴 횟수|다른 부품 안에서 쓴 횟수|화면에서 쓴 페이지들|부모 틀 이름
+# 페이지: 0=프로젝트 정보 1=디자인 가이드 2=파운데이션 3=------ 4=공통 컴포넌트/패턴 5=01 GNB/LNB 6=02 메인 7=03 리포트 8=03-α 리포트 스크리너 9=4 시장 시그널 10=7 종목 발굴 11=5 기업분석 12=14 결제 13=10 부가정보 14=6 섹터분석 15=9 ETF/ETN 16=11 내 관심 17=12 회원가입 18=마이페이지 19=17 서비스 소개 20=15 공지사항 21=----
+22:7|section-line|1|S|2|27|0|1,2,12,15,17|플랫폼별 페이지 표기 방법
+61:2264|Browser & URL Controls|1|S|2|2|0|1,6|플랫폼별 페이지 표기 방법
+62:690|Keyboard|1|S|4|0|0||플랫폼별 페이지 표기 방법
+62:1054|Indicator|1|S|2|0|1||플랫폼별 페이지 표기 방법
+62:1087|Status bar|1|S|2|0|0||플랫폼별 페이지 표기 방법
+24:3023|variant-property|1|C|1|0|0||플랫폼별 페이지 표기 방법
+61:2430|add-commnet|1|C|1|1|0|1|플랫폼별 페이지 표기 방법
+5206:39741|icon/check-mark|2|S|3|244|40|12,17,18|로그인/회원가입/결제
+5206:39746|icon/box-check|2|S|1|0|0||로그인/회원가입/결제
+5206:39761|icon/pw-show|2|S|2|80|14|17,18|로그인/회원가입/결제
+9844:12825|icon/download|2|S|1|0|2||로그인/회원가입/결제
+2012:2759|dropdown-list|4|S|4|11|0|4|공통 컴포넌트/패턴
+2012:2809|tooltip|4|S|11|19|1|4,7,9,11,14|공통 컴포넌트/패턴
+2012:2824|bubble|4|S|4|19|11|4,7,9,11,14|공통 컴포넌트/패턴
+2255:1002|btn-ot-primary|4|S|15|245|16|4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|공통 컴포넌트/패턴
+2255:1009|btn-fill-primary|4|S|15|307|28|4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|공통 컴포넌트/패턴
+2267:1506|btn-fill-secondary|4|S|9|2|1|4,6|공통 컴포넌트/패턴
+6231:57635|btn-fill-tertiary|4|S|12|1|0|7|공통 컴포넌트/패턴
+2255:1077|btn-ot-secondary|4|S|3|0|0||공통 컴포넌트/패턴
+6868:88859|btn-ot-tertiary|4|S|6|5|2|12|공통 컴포넌트/패턴
+2267:1365|linetab|4|S|2|2|0|4|공통 컴포넌트/패턴
+4330:15203|box-text-select|4|S|30|66|6|4,7,13,15|공통 컴포넌트/패턴
+4330:15217|box-date-select|4|S|15|53|4|4,7,8,9,10,13,14,16|공통 컴포넌트/패턴
+4346:16708|service-search-bar|4|S|18|65|2|7,9,10,11,15|공통 컴포넌트/패턴
+8465:51378|home-search-bar|4|S|10|2|7|6|공통 컴포넌트/패턴
+4263:24880|dropdown-ui-list-box|4|S|3|2|0|5|공통 컴포넌트/패턴
+6097:111684|segment-base-new|4|S|6|521|229|4,5,7,8,9,10,11,12,13,14,15,16,18|공통 컴포넌트/패턴
+4604:12520|dropdown-ui-list|4|S|18|166|21|4,5,7|공통 컴포넌트/패턴
+4616:12793|icon/ddl-leading|4|S|46|107|43|4,5,7,11,15|ui-icon
+4749:19047|icon/close|4|S|10|20|9|5,7,11,12,13,18|ui-icon
+4445:22506|icon/arrow-icon|4|S|14|30|21|6,9,11,19|ui-icon
+4142:8133|icon/price-rate|4|S|17|752|185|5,6,7,8,9,11,15|ui-icon
+4794:31922|icon/search|4|S|2|73|37|6,7,9,10,11,15|ui-icon
+4794:31932|icon/tx-delete|4|S|1|7|17|4,7|ui-icon
+4814:32183|icon/link-external|4|S|6|41|5|12,16|ui-icon
+4814:43842|icon/caret|4|S|4|0|0||ui-icon
+4965:34674|icon/speed-report|4|S|3|0|0||ui-icon
+5004:28117|icon/tag-delete|4|S|1|27|52|4,7,15|ui-icon
+5025:28155|icon/info-circle-fill|4|S|2|196|34|4,7,8,9,11,15|ui-icon
+5025:36678|icon/title-arrow|4|S|1|0|0||ui-icon
+5025:36681|icon/more|4|S|2|49|17|5,8,15,19|ui-icon
+5025:36687|icon/pw-show|4|S|2|0|0||ui-icon
+5025:36696|icon/info-circle|4|S|3|63|3|5,7,8,9,10,17,18,19|ui-icon
+5025:36703|icon/link-external|4|S|1|0|0||ui-icon
+5025:36706|icon/refresh|4|S|1|0|0||ui-icon
+5025:36709|icon/lock-content|4|S|1|0|0||ui-icon
+5025:36712|icon/calendar|4|S|1|0|0||ui-icon
+5025:36716|icon/file|4|S|1|0|0||ui-icon
+5071:41707|icon/carousel-arrow|4|S|6|10|24|7,13|ui-icon
+4814:31960|icon/chevron-down|4|S|16|269|104|4,5,7,8,9,10,13,14,15,16|ui-icon
+5095:7960|icon/chevron-left|4|S|2|7|3|13|ui-icon
+5095:7965|icon/chevron-up|4|S|8|4|1|7|ui-icon
+5095:7983|icon/chevron-right|4|S|8|19|21|5,13|ui-icon
+4321:16583|icon/ordering|4|S|3|0|0||ui-icon
+6131:40493|icon/ordering-new|4|S|3|527|63|7,8,9,10,11,13,14,15,16|ui-icon
+5095:15579|icon/spinner|4|S|3|4|6|7|ui-icon
+5579:13194|filter-folding|4|S|2|0|12||ui-icon
+5559:20911|icon/filter-reset|4|S|3|10|8|7,8,10,15|ui-icon
+5095:14965|icon/menu/all-menu|4|S|1|0|1||ui-icon
+6324:40663|arrow-folter-down|4|S|4|8|4|8,9|ui-icon
+6431:92627|icon/download-excel|4|S|1|0|2||ui-icon
+6868:94462|icon/pagination-arrow|4|S|12|132|8|7,8,9,11,12,16|ui-icon
+8784:61163|tabledata-icon|4|S|14|317|22|11,14,15|ui-icon
+4142:8149|icon/symbol-stock|4|S|21|49|41|4,5,6,11,15|symbol-list
+4719:10428|icon/symbol-etf|4|S|14|24|8|6|symbol-list
+4142:7851|icon/symbol-aothor-house|4|S|25|0|22||symbol-list
+5004:28121|symbol-fnguide-logo|4|S|1|16|1|6,19|symbol-list
+5004:28122|symbol-isms|4|S|1|17|1|5,6,19|symbol-list
+5358:76357|icon|4|S|1|2|3|5|symbol-list
+5358:76358|logo-wise|4|S|1|2|4|5|symbol-list
+4749:17546|bar-vertical|4|S|9|404|52|4,6,7,9,11,13,14,16,19|공통 컴포넌트/패턴
+4749:17564|scroll-bar|4|S|8|25|0|4,5,7,8,10,13,14|공통 컴포넌트/패턴
+4321:16596|table-header-1line|4|S|24|1210|60|7,8,9,10,11,12,13,14,15,16|공통 컴포넌트/패턴
+4321:16636|th-text|4|S|8|1143|75|7,8,9,10,11,12,13,14,15,16|공통 컴포넌트/패턴
+8853:28542|td-first-text|4|S|32|830|9|11,13,15|공통 컴포넌트/패턴
+4957:849|dropdown-list|4|S|16|129|82|4,7,8,9,14|공통 컴포넌트/패턴
+4957:902|dropdown-list-box|4|S|3|8|0|4,7,9|공통 컴포넌트/패턴
+5004:27885|tag-basic|4|S|32|49|15|4,7,8,15|공통 컴포넌트/패턴
+5004:27949|tag-label|4|S|2|2|0|4|공통 컴포넌트/패턴
+5581:30526|tag-keywords|4|S|6|17|66|4,7|공통 컴포넌트/패턴
+5004:28038|tag-selected|4|S|2|0|0||공통 컴포넌트/패턴
+5141:25984|tag-industry|4|S|4|0|0||공통 컴포넌트/패턴
+5025:36521|dialog|4|S|2|17|0|4,7,12,16,18|공통 컴포넌트/패턴
+5025:36529|dialog-action|4|S|10|26|4|4,7,12,16,18|공통 컴포넌트/패턴
+5025:36573|toast|4|S|4|6|0|4,17|공통 컴포넌트/패턴
+5025:36585|dialog-header|4|S|2|17|2|4,7,12,16,18|공통 컴포넌트/패턴
+5025:36721|icon/check-success|4|S|1|0|0||feedback
+5025:36726|icon/add-card|4|S|1|2|4|12|feedback
+5025:36731|icon/error-circle|4|S|2|0|0||feedback
+5025:36738|icon/warning-circle|4|S|2|0|0||feedback
+5025:36745|icon/step-arrow|4|S|1|0|0||feedback
+5141:24182|btn-uiform|4|S|6|22|3|7,8,15|공통 컴포넌트/패턴
+4350:16841|checkbox|4|S|6|468|88|4,7,8,9,12,17,18|formControls
+4350:16886|switch|4|S|4|36|65|4,8|formControls
+4350:16984|radio|4|S|4|4|1|4|formControls
+5308:7266|checkbox-round|4|S|2|6|20|12|formControls
+5206:214|input-base|4|S|22|226|12|4,17,18|공통 컴포넌트/패턴
+5088:44138|modal-header|4|S|6|15|2|7,11,12,13,18|공통 컴포넌트/패턴
+5116:17623|modal-tab|4|S|8|25|0|7|공통 컴포넌트/패턴
+6097:111988|segment-filter-fixable|4|S|20|140|4|4,7,9,10,11,13,14,16,18|공통 컴포넌트/패턴
+7280:54430|segment-filter-size|4|S|20|7|8|5,10|공통 컴포넌트/패턴
+6963:132145|flat-select|4|S|3|41|14|4,7,8,9,13,16|공통 컴포넌트/패턴
+7319:9440|solid-base|4|S|2|70|10|19|공통 컴포넌트/패턴
+8330:88855|date-label|4|S|2|32|9|4,7,8,10,13|공통 컴포넌트/패턴
+12640:11877|input-select|4|S|18|0|0||공통 컴포넌트/패턴
+6928:93252|variant-property|4|C|1|8|0|4|공통 컴포넌트/패턴
+7216:62685|Icon/lock-report|4|C|1|1|1|6|ui-icon
+7035:23993|Icon/Outline/badge-check|4|C|1|0|0||공통 컴포넌트/패턴
+7035:23996|Icon/Solid/badge-check|4|C|1|0|0||공통 컴포넌트/패턴
+7035:24020|react-icons/bi/BiAward|4|C|1|0|0||공통 컴포넌트/패턴
+7056:25817|five-star-badge|4|C|1|0|0||공통 컴포넌트/패턴
+11647:60910|wise-nodata|4|C|1|0|6||symbol-list
+5371:88498|dialog-body|4|C|1|13|1|4,7,12,16,18|공통 컴포넌트/패턴
+5694:88272|home|4|C|1|0|0||공통 컴포넌트/패턴
+7319:9447|tab-solid|4|C|1|10|0|19|공통 컴포넌트/패턴
+8518:126558|text-tooltip/best-analyst|4|C|1|4|6|7|공통 컴포넌트/패턴
+8778:48319|tag-best-analyst|4|C|1|1|6|7|공통 컴포넌트/패턴
+4514:9717|menu/menu-left|5|S|2|156|1|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|menu-left
+4263:17992|menu/menu-leftt-content|5|S|7|1|1|5|menu-left
+4514:9212|menu/menu-right|5|S|3|155|2|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|right-menu
+4514:13089|menu/menu-right-content|5|S|15|1|0|5|right-menu
+5339:26462|btn-favorite|5|S|4|4|3|8|etc
+5141:24820|keyword-list|5|S|2|2|16|5|etc
+4220:10066|menu/section-title|5|S|1|1|9|5|etc
+5299:20268|btn-sidebar-toggle|5|S|4|5|6|5|etc
+5306:11847|txet-btn|5|S|2|6|6|5|etc
+4212:10061| menu-ui-icon|5|S|3|1705|27|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|gnb-icon
+4946:15853|menu/ui-icon-action|5|S|3|57|145|5|gnb-icon
+4220:9942|menu/item-menu-label|5|S|4|4|17|5|menu-label
+5141:24493|favorite-item|5|S|10|7|55|5|favorite-item
+4220:10196|menu/item-2d-menu|5|S|6|26|95|5|2depth-menu
+4514:13749|menu/menu-report-list|5|S|6|30|60|5|menu-report-list
+4914:26372|icon/menu/all-menu|5|S|1|156|5|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|align-menu-icon
+4912:15908|icon/menu/favorite|5|S|1|155|2|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|align-menu-icon
+4912:15894|icon/menu/all-report|5|S|1|155|2|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|align-menu-icon
+4912:15896|icon/menu/analysis|5|S|1|155|2|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|align-menu-icon
+4912:15897|icon/menu/find|5|S|1|155|2|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|align-menu-icon
+4912:15892|icon/menu/my-report|5|S|1|155|2|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|align-menu-icon
+4912:15895|icon/menu/feed|5|S|1|155|3|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|align-menu-icon
+4912:15893|icon/menu/interest|5|S|1|155|3|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|align-menu-icon
+4923:15910|icon/menu/bookmark-one|5|S|1|0|0||align-menu-icon
+4912:15898|icon/menu/market|5|S|1|0|0||align-menu-icon
+4923:15915|icon/menu/history|5|S|1|0|0||align-menu-icon
+4923:15912|icon/ui-icon/service-info|5|S|1|155|3|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|align-ui-icon
+11199:24783|icon/ui-icon/left-collapsed|5|S|1|0|0||align-ui-icon
+4923:15913|icon/ui-icon/left-expand|5|S|1|0|0||align-ui-icon
+4923:15909|icon/ui-icon/right-collapse|5|S|1|0|0||align-ui-icon
+4912:15268|icon/ui-icon/right-expand|5|S|1|0|0||align-ui-icon
+4923:15914|icon/ui-icon/setting|5|S|1|155|2|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|align-ui-icon
+4923:15911|icon/ui-icon/user|5|S|1|155|2|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|align-ui-icon
+4946:15834|icon/ui-icon/bookmark-line|5|S|1|0|0||align-ui-icon-small
+4946:15835|icon/ui-icon/bookmark-fill|5|S|1|0|0||align-ui-icon-small
+4946:15836|icon/ui-icon/favorite-star-line|5|S|1|0|0||align-ui-icon-small
+4946:15837|icon/ui-icon/favorite-star-fill|5|S|1|0|0||align-ui-icon-small
+4946:15838|icon/ui-icon/interrest-line|5|S|1|0|2||align-ui-icon-small
+4946:15841|icon/ui-icon/interrest-fill|5|S|1|0|0||align-ui-icon-small
+4946:15839|icon/ui-icon/arrow-down|5|S|1|0|0||menu-ui-icon-open-cl
+4946:15840|icon/ui-icon/arrow-up|5|S|1|0|0||menu-ui-icon-open-cl
+4946:15884|icon/ui-icon/favorite|5|S|8|67|148|5,15|ui-icon
+5071:40601|footer-area|5|S|2|222|1|6,7,8,9,10,11,13,14,15,16,17,18,19|Footer
+4445:44066|navigation-top|5|S|4|155|0|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|navigation-top
+4814:34489|wisereport-logo|5|S|1|155|5|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|navigation-top
+4814:32243|company-global-link|5|S|2|0|1||navigation-top
+8375:17589|title|5|S|4|139|1|5,7,8,9,10,11,12,13,14,15,16,17,18,19|navigation-top
+4474:45758|item-stocklist|5|C|1|20|20|5|etc
+5312:21001|empty-btn|5|C|1|0|2||etc
+5358:76367|text-label|5|C|1|114|0|5,7,8,9,10,11,12,13,14,16|etc
+5358:76365|🔽|5|C|1|114|1|5,7,8,9,10,11,12,13,14,16|etc
+4220:12152|detail-sidebar/no|5|C|1|1|8|5|left-menu-list
+4220:9827|badge|5|C|1|0|0||badge-icon
+4153:8125|isms|5|C|1|0|0||footer-component
+4814:34184|wisereport-logo-area|5|C|1|155|4|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|navigation-top
+4794:29831|card-etf-holdings|6|S|2|8|0|6|card-etf-holdings
+4136:9009|list-item|6|S|4|48|7|6|list-item
+4632:18880|card-target-price|6|S|3|20|0|6|card-target-price
+4632:18152|author-area|6|S|2|16|3|6|card-target-price
+4632:18247|house|6|S|2|16|5|6|card-target-price
+4012:2828|service-tag|6|S|11|241|74|7,16|contents-etc
+8487:121674|market-tag|6|S|12|497|85|7,8,9,10,13,16|contents-etc
+4514:12861|heading-title|6|S|16|108|11|6,7,8,9,11,13,14|contents-etc
+4135:7420|updown-text|6|S|21|32|10|6|contents-etc
+4965:34231|rate|6|S|4|0|0||contents-etc
+7216:46011|target-price|6|S|2|16|3|6|contents-etc
+7216:82201|Component|6|S|2|16|3|6|contents-etc
+7898:91865|flash|6|S|2|99|15|7,16|contents-etc
+4263:25100|banner-style|6|S|4|0|0||main-component
+4965:33993|indicator|6|S|3|0|4||indicator
+7216:62665|service-ready|6|S|1|1|0|6|main-component
+7729:7861|bubble|6|S|7|20|0|6|main-component
+7424:53514|unit-text|6|C|1|57|12|6,9,13,15,16|contents-etc
+6986:90356|banner-area|6|C|1|0|0||main-component
+7729:12552|line-banner-01|6|C|1|2|0|6|main-component
+7855:5072|service-ready-area|6|C|1|1|0|6|main-component
+4330:15574|pagination-btn|7|S|4|330|14|7,8,9,11,12,16|report-component
+4330:15581|pagination|7|S|2|44|0|7,8,9,10,11,12,14,16|report-component
+4946:22881|cell-data|7|S|15|1451|145|7,8,9,10,11,12,13,14,15,16|report-component
+4321:16900|cell-num|7|S|20|5341|15|8,9,10,11,13,14,15,16|report-component
+4946:23876|filter-reset|7|S|4|16|5|7,8,10,13,14,15|report-component
+5559:20891|filter-folding|7|S|2|0|0||report-component
+7424:52666|btn-login|7|S|2|155|4|5,6,7,8,9,10,11,12,13,14,15,16,17,18,19|report-component
+6431:90007|condition-folding|7|S|8|8|0|8,9|report-component
+4321:16842|cell-date|7|S|5|1025|110|7,8,9,10,11,12,13,14,16|report-component
+4321:16850|cell-text-link|7|S|30|2494|380|7,8,9,10,11,12,13,14,15,16|report-component
+4321:16878|cell-with-sign|7|S|7|1062|205|7,8,9,11,14|report-component
+4321:16948|tx-sign-list|7|S|3|10|0|16|report-component
+4321:16962|tx-sign|7|S|3|21|6|16|report-component
+6654:36963|tab|7|S|5|270|72|7,9|report-component
+6868:95730|filter-items|7|S|2|18|0|7|report-component
+6868:95940|service-tab|7|S|2|33|0|7,9|report-component
+6698:60542|service-sub-tab-btn|7|S|4|38|19|4,7|report-component
+6950:61722|service-main|7|S|4|31|2|7,9|report-component
+6962:76303|cell-like|7|S|3|197|95|7,8,9,11,14,16|report-component
+8330:87086|cell-data-ir|7|S|2|0|0||report-component
+8853:26097|cell-first|7|S|9|865|0|11,13,15|report-component
+4957:3976|dropdown-focus-type|7|S|3|4|8|7|report-search-compon
+4957:4005|dropdown-list|7|S|12|23|28|7|report-search-compon
+4957:4029|searchbar-focus|7|S|4|3|0|7|report-search-compon
+5811:71062|searchbar-keyword-new|7|S|4|2|0|7|report-search-compon
+4957:4220|search-code|7|S|2|0|0||report-search-compon
+5811:66636|search-code-new|7|S|3|0|2||report-search-compon
+5071:40154|empty-case|7|S|4|30|0|7,10,11,15,16|report
+5071:41631|dropdown-input|7|S|4|10|0|7|report-filter
+5071:41685|calendar-m-btn|7|S|4|24|12|7,13|report-filter
+5737:40245|filter-items|7|S|2|0|0||report-filter
+5088:44092|modal-check-label|7|S|5|306|3|7|report-filter
+11647:61079|message-area|7|S|6|30|4|7,10,11,15,16|report
+11694:72575|bookmark|7|S|3|1|1|7|report
+4998:15887|browser|7|S|4|134|0|7,8,9,10,11,12,13,14,15,16,17,18,19|report-screen-size
+5482:14904|cell-summary|7|C|1|30|0|7,14|report-component
+9251:52606|cell-summary-comp|7|C|1|8|0|11|report-component
+8784:62694|cell-summary-business|7|C|1|5|0|11|report-component
+6868:28886|img/new-label|7|C|1|0|2||report-component
+5371:81744|안내 텍스트|7|C|1|5|0|7|report-search-compon
+5025:38962|summary-tooltip|7|C|1|1|0|7|report
+5071:41629|calendar-month|7|C|1|1|0|13|report-filter
+6439:65642|search-field|7|C|1|0|0||report-filter
+6698:60707|sub-menu|7|C|1|5|1|7|report
+6698:62354|main-menu|7|C|1|31|6|7,9|report
+11694:72595|report-name|7|C|1|1|0|7|report
+7373:200320|bullet-label-list-area/true|7|C|1|15|0|7|report
+7615:82566|summary-item|7|C|1|20|0|7,18|report
+7898:96295|ruller|7|C|1|9|0|7|report
+8330:74890|cell-multiline-unit|7|C|1|0|0||report
+8330:74891|cell-multiline|7|C|1|0|0||report
+5966:56487|table-default-company|7|C|1|3|0|7|Frame 3
+6962:79168|table-default-hot|7|C|1|1|0|7|Frame 3
+5966:65928|table-default-all|7|C|1|23|0|7|Frame 3
+8435:136432|lines|7|C|1|16|0|7|Measuring Line A ::
+6693:46485|condition-item-all|8|S|2|9|6|8|컴포넌트
+6350:53061|input-spinner|8|S|6|16|32|8|컴포넌트
+6431:91289|btn-download-excel|8|S|2|0|0||컴포넌트
+8207:8265|condition-item|8|S|12|24|0|8|컴포넌트
+6350:53010|input-item|8|C|1|16|74|8|컴포넌트
+6339:44466|radio-select-item|8|C|1|0|0||컴포넌트
+6339:44680|check-select-item|8|C|1|4|18|8|컴포넌트
+6350:44774|bullet-label|8|C|1|22|99|8|컴포넌트
+6693:42554|switch-item|8|C|1|32|144|8|컴포넌트
+6054:58711|back-btn|9|S|2|2|0|9,14|signal-component
+6075:30543|bar|9|S|6|0|0||signal-component
+7035:36349|chart-box|9|S|4|1|0|7|signal-component
+7950:108310|content-title|9|S|3|136|0|8,9,10,11,13,14,15,16|signal-component
+7950:108467|count-unit|9|S|8|23|2|8,9,10,13,15,16|signal-component
+7950:108526|title-unit|9|S|12|166|2|8,9,10,11,14,15,16,18|signal-component
+6075:30037|corp-name|9|C|1|4|0|9|signal-component
+6075:30492|m-chart-box-2|9|C|1|2|0|9|signal-component
+6561:61919|m-chart-box-3|9|C|1|2|0|9|signal-component
+6042:38484|bar/cell-dow-nup|9|C|1|51|0|9|signal-component
+6288:67559|table-default-1|9|C|1|2|0|9|signal-component
+6288:69735|table-default-2|9|C|1|2|0|9|signal-component
+6288:71889|table-default-3|9|C|1|1|0|9|signal-component
+9742:78757|down|9|C|1|14|0|9|signal-component
+9742:78763|up|9|C|1|12|0|9|signal-component
+7106:188725|comment-area|10|S|5|74|5|7,9,10,11,13|component
+9185:70713|cf-list-sub|10|S|4|5|0|10|component
+8784:61476|_consensus-1|11|C|1|0|0||unit consensus
+9093:63991|comp-search|11|C|1|23|0|11|컴포넌트
+9063:10560|info-01|11|C|1|23|1|11|컴포넌트
+9434:37327|12-polygon|11|C|1|2|1|11|컴포넌트
+9439:43411|bg-multifactor|11|C|1|2|0|11|컴포넌트
+9239:278275|card-plan|12|S|8|23|0|12|플랜구독-선택
+9246:4769|price-row|12|S|2|23|8|12|플랜구독-선택
+9734:307807|segment-filter-plan|12|S|3|9|0|12|플랜구독-선택
+9788:303908|notice-list|12|S|4|18|0|12|플랜구독-선택
+9823:308505|txt-btn|12|S|6|10|13|12|플랜구독-선택
+10104:166062|badge-plan|12|S|3|10|5|12|플랜구독-선택
+10255:304263|status-payment|12|S|2|5|6|12|플랜구독-선택
+10255:304329|plan-row|12|S|2|36|19|12|플랜구독-선택
+10267:305271|card-payment-summary|12|S|3|8|0|12|플랜구독-선택
+10267:305692|status-msg|12|S|2|3|3|12|플랜관리
+10267:305791|card-my-plan|12|S|6|5|0|12|플랜관리
+10267:306891|modal-cancel-plan|12|S|2|0|0||플랜관리
+9683:296944|card-payment-method|12|S|6|3|0|12|플랜구독-결제
+9239:278221|plan-list|12|C|1|70|32|12|플랜구독-선택
+9239:278216|total-row|12|C|1|8|2|12|플랜구독-선택
+9618:160060|bullet-list|12|C|1|74|18|12|플랜구독-선택
+9701:67305|btn-card-add|12|C|1|0|0||플랜구독-결제
+8330:75654|swiper|13|S|2|14|4|13|컴포넌트
+8672:8121|date|13|S|3|70|3|13|컴포넌트
+8672:8128|cal-cell|13|S|3|70|0|13|컴포넌트
+8672:8145|event-chip|13|S|16|24|4|13|컴포넌트
+8672:8195|cal-main-chip|13|S|14|32|0|13|컴포넌트
+9560:163783|event-chip-weekly|13|S|12|39|0|13|컴포넌트
+9653:82901|service-tag|13|S|7|26|0|13|컴포넌트
+8330:85608|monthly-select|13|C|1|7|0|13|컴포넌트
+8330:75820|swiper-set|13|C|1|7|1|13|컴포넌트
+9841:124609|anlysis-info|14|S|2|6|0|14|컴포넌트
+12206:4827|current-card|14|S|2|30|0|14,15|컴포넌트
+11092:330519|chart/treemap|15|C|1|0|0||ETF 랭킹
+11113:331253|chart/line-dual-3|15|C|1|0|0||ETF 랭킹
+11113:331402|chart/combo-dual|15|C|1|0|0||ETF 랭킹
+11124:331893|chart/combo-sparse|15|C|1|1|0|15|ETF 랭킹
+5206:39540|input-case|17|S|12|147|0|17,18|회원가입
+5206:39723|validation-check|17|S|2|174|7|17,18|비밀번호유효성체크
+5206:39692|input-text-btn|17|S|2|0|8||input-text-btn
+5668:29106|tx-login-link|17|S|3|33|0|17|회원가입
+5961:129177|check-list|17|S|5|125|1|12,17,18|회원가입
+5337:76534|info-msg|17|C|1|1|0|17|비밀번호유효성체크
+5337:76602|info-variant|17|C|1|3|0|17|input-text-btn
+7756:59558|Item|19|S|3|224|0|19|컴포넌트
+7795:103013|label|19|C|1|32|0|19|컴포넌트
+7825:13684|h2|19|C|1|25|0|19|컴포넌트
+7795:95296|card|19|C|1|48|0|19|디자인 아티클
+12651:114338|WR-White 1|19|C|1|0|0||Icon-Symbol
+12651:114370|symbol|19|C|1|1|2|19|Icon-Symbol
+12651:114391|WR-symbol|19|C|1|1|0|19|Icon-Symbol
+12651:114415|top|19|C|1|1|0|19|Icon-Symbol
+14003:152599|content-list-info|20|S|4|0|0||공지사항
+14003:152614|board-list-prevnext|20|S|4|2|0|20|공지사항
+14003:152644|notice-card|20|S|4|12|0|20|공지사항
+14003:152593|download-file|20|C|1|2|0|20|공지사항
