@@ -1,0 +1,61 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>디자인시스템 점검 2차</title>
+<style>
+:root{--bg:#f6f7f9;--panel:#fff;--ink:#1b1f24;--mute:#6b7280;--line:#e5e7eb;--accent:#4b3fd6;--ok:#2f855a;--warn:#b7791f;--bad:#c53030}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#111418;--panel:#1a1e24;--ink:#e6e8eb;--mute:#9aa3ae;--line:#2a3039}}
+:root[data-theme=dark]{--bg:#111418;--panel:#1a1e24;--ink:#e6e8eb;--mute:#9aa3ae;--line:#2a3039}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 "Pretendard","Noto Sans KR",system-ui,sans-serif}
+main{max-width:1080px;margin:0 auto;padding:32px 16px 80px}
+h1{font-size:24px;margin:0 0 4px}h2{font-size:17px;margin:36px 0 10px}.lead{color:var(--mute);margin:0 0 20px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.k{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}.k b{display:block;font-size:26px}.k small{color:var(--mute)}
+.wrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:640px}th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--mute);font-weight:600}code{font-size:12px;background:color-mix(in srgb,var(--accent) 10%,transparent);padding:1px 5px;border-radius:4px}
+.ok{color:var(--ok);font-weight:600}.warn{color:var(--warn);font-weight:600}.bad{color:var(--bad);font-weight:600}
+ol li{margin:6px 0}.note{color:var(--mute);font-size:13px}
+</style></head><body><main>
+<h1>디자인시스템 점검 2차</h1>
+<p class="lead">와이즈리포트 디자인시스템 테스트 파일 · 2026-11-03 · 공통 컴포넌트 구역 130개 · 1차 점검(같은 날 오전) 이후 변화</p>
+<div class="kpi">
+<div class="k"><small>점수 (어림)</small><b>69 / 100</b><small>1차 60 → +9</small></div>
+<div class="k"><small>색 저장값 연결</small><b>92%</b><small>2,333곳 연결 · 직접 색 210 (대부분 로고)</small></div>
+<div class="k"><small>끊긴 색</small><b>0</b><small>부품 안 다른 파일 저장값 연결 없음</small></div>
+<div class="k"><small>부품 설명</small><b>130 / 130</b><small>1차 1개 → 전부</small></div>
+<div class="k"><small>글자 스타일 연결</small><b>0 / 658</b><small>스타일이 아직 Noto Sans</small></div>
+</div>
+<p class="note">점수 기준(어림): 색 29/30 · 간격·모서리 13/20 · 글자 5/20 · 이름 일관성 9/15 · 상태·설명 13/15. 숨김 레이어는 뺐어요.</p>
+
+<h2>1차 이후 바뀐 것</h2>
+<div class="wrap"><table><thead><tr><th>항목</th><th>1차</th><th>2차</th></tr></thead><tbody>
+<tr><td>끊긴 색 (다른 파일 저장값)</td><td>점검 안 함</td><td class="ok">전체 페이지 385곳 + 공지사항 188곳 다시 연결 · 부품 안 0</td></tr>
+<tr><td>직접 넣은 흰색</td><td class="warn">대부분 직접 색</td><td class="ok">313곳 → bg-primary · tx-inverse · ic-white</td></tr>
+<tr><td>직접 넣은 검정</td><td class="warn">대부분 직접 색</td><td class="ok">불투명 약 64곳 → tx-primary · bd-strong · ic-primary, 10% 테두리 42곳 → bd-light · 남은 9곳 표시</td></tr>
+<tr><td>빠진 색 저장값</td><td>—</td><td class="ok">백업에서 5개 복원, 저장값끼리 끊긴 연결 4개 고침</td></tr>
+<tr><td>부품 설명</td><td class="bad">1 / 131</td><td class="ok">130 / 130 (용도 줄은 "확인 필요")</td></tr>
+<tr><td>radio 상태 이름</td><td class="warn">임시값</td><td class="ok">unselected / selected + hover (사용자 정리)</td></tr>
+</tbody></table></div>
+
+<h2>남은 문제</h2>
+<div class="wrap"><table><thead><tr><th>분류</th><th>지금 상태</th><th>할 일</th></tr></thead><tbody>
+<tr><td>글자</td><td class="bad">글자 658개 모두 Wanted Sans, 스타일 연결 0</td><td>스타일 18개를 Wanted Sans로 바꾼 뒤 줄간격까지 같은 것만 연결 (부품 원본 기준 약 522개, 어림)</td></tr>
+<tr><td>간격</td><td class="warn">연결 3,615 · 직접 1,288</td><td>직접 값 대부분 저장값에 없는 값: 6.67(345) · 5(344) · 3(274) · 13.33(62) · 7(52) · 1(47) · 30(25) · 18(20) · -1(19)</td></tr>
+<tr><td>모서리</td><td class="warn">연결 322 · 직접 443</td><td>저장값에 없는 값이 섞여 있음 → 값별로 다시 세어 정하기</td></tr>
+<tr><td>직접 색</td><td>210곳</td><td>대부분 회사·외부 로고 고유색(빨강·파랑 계열) → 그대로 두는 것이 맞음. #333333 테두리 5 · 남은 검정 9는 표시함</td></tr>
+<tr><td>이름</td><td class="warn"><code>name</code> 칸 95세트</td><td>개발 쪽 이름과 맞춘 것인지 확인 후 정리 (값이 세트 이름과 다른 것: btn-fill-tertiary, btn-ot-tertiary, btn-login, dropdown-list 등)</td></tr>
+<tr><td>빠진 상태</td><td class="warn">tag-basic · btn-login · filter-reset 비활성 없음</td><td>비활성 색 정하기</td></tr>
+<tr><td>끊긴 색 (저장값)</td><td>2개</td><td>tx-ddl-add · tx-ddl-add-hover → 다른 파일 indigo-500 (이 파일은 base/sub/indigo-500)</td></tr>
+<tr><td>안 쓰는 부품</td><td>linetab · radio · dropdown-list-simple 등</td><td>화면에 안 쓰여도 남길지 결정</td></tr>
+</tbody></table></div>
+
+<h2>먼저 할 일</h2>
+<ol>
+<li><b>글자 스타일</b> — 스타일 18개를 Wanted Sans로 바꾸기 (피그마에서 직접) → 연결. 점수에 가장 큰 영향 (글자 5/20)</li>
+<li><b>간격 값 정하기</b> — 6.67 · 5 · 3 · 13.33 이 많음. 저장값을 추가할지, 가까운 값(6·4·2·14)으로 맞출지</li>
+<li><b>name 칸 정리</b> — 개발 쪽과 확인</li>
+<li><b>비활성 색</b> — tag-basic · btn-login · filter-reset</li>
+<li><b>라이브러리 발행</b> — 위가 끝나면 피그마에서 직접</li>
+</ol>
+<p class="note">숫자는 2026-11-03 피그마 파일을 읽어 센 값. 점수는 기준을 정해 매긴 어림값.</p>
+</main></body></html>
