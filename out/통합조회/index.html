@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>통합 조회 · WiseReport</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
+<style>
+:root{
+  --brand:#594fc8; --brand-50:#f0f1ff; --brand-hover:#4a41b3;
+  --tx:#121317; --tx-2:#2d3139; --tx-sec:#5c6270; --tx-label:#747b8b; --tx-th:#505562;
+  --tx-muted:#acb0b9; --tx-read:#9195a1; --tx-cap:#9fa3ad; --tx-foot:#686e7d;
+  --bd:#e1e2e5; --bd-light:#ecedee; --bg:#fff; --bg-2:#fafafb; --bg-3:#f2f2f3; --bg-hover:#f7f7f8;
+  --inc:#f6606b; --dec:#627eee; --new:#ffa000; --flat:#9195a1; --flash:#ffa000; --award:#ffa000;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:"Wanted Sans Variable","Wanted Sans",Pretendard,"Noto Sans KR",system-ui,sans-serif;color:var(--tx);background:var(--bg);font-size:14px;letter-spacing:-0.01em;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+svg{display:block;flex:none}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
+.num{font-variant-numeric:tabular-nums}
+
+/* 위 막대 */
+.topbar{height:54px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 10px 0 18px;border-bottom:1px solid var(--bd-light);position:sticky;top:0;background:#fff;z-index:20}
+.logo{font-family:Georgia,"Times New Roman",serif;font-size:22px;font-weight:700;color:#1b2a4a;letter-spacing:-0.02em}
+.page-title{display:flex;align-items:center;gap:6px;font-size:19px;font-weight:600;color:var(--tx-2)}
+.page-title .info{color:var(--tx-muted);position:relative}
+.page-title .info .tip{display:none;position:absolute;top:26px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#2d3139;color:#fff;font-size:12px;font-weight:500;padding:8px 10px;border-radius:6px}
+.page-title .info:hover .tip,.page-title .info:focus .tip{display:block}
+.top-actions{justify-self:end;display:flex;align-items:center;gap:8px}
+.btn-text{height:32px;padding:0 12px;font-size:13px;font-weight:500;color:var(--tx)}
+.btn-ot{height:32px;padding:0 16px;font-size:13px;font-weight:500;border:1px solid var(--bd);border-radius:6px;background:#fff}
+.btn-ot:hover{background:var(--bg-hover)}
+.btn-fill{height:32px;padding:0 16px;font-size:13px;font-weight:600;border-radius:6px;background:var(--brand);color:#fff}
+.btn-fill:hover{background:var(--brand-hover)}
+
+/* 전체 틀 */
+.shell{display:flex;min-height:calc(100vh - 54px)}
+.rail{width:60px;flex:none;border-right:1px solid var(--bd-light);display:flex;flex-direction:column;justify-content:space-between;padding:14px 0;position:sticky;top:54px;height:calc(100vh - 54px)}
+.rail-group{display:flex;flex-direction:column;gap:14px;align-items:center}
+.rail-btn{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:500;color:var(--tx-2);width:56px;padding:4px 0;border-radius:8px}
+.rail-btn svg{color:#5c6270}
+.rail-btn:hover{background:var(--bg-hover)}
+.rail-btn.on{color:var(--brand)}
+.rail-btn.on .ico{background:var(--brand-50);color:var(--brand)}
+.rail-btn .ico{width:32px;height:32px;border-radius:8px;display:grid;place-items:center}
+.rail-btn.on .ico svg{color:var(--brand)}
+
+.submenu{width:200px;flex:none;background:var(--bg-2);padding:22px 16px 22px 20px;position:sticky;top:54px;height:calc(100vh - 54px);overflow:auto}
+.submenu h2{font-size:17px;font-weight:700;color:var(--tx-2);margin-bottom:22px}
+.submenu h3{font-size:13px;font-weight:600;color:var(--brand);margin:0 0 6px}
+.submenu ul{list-style:none;margin-bottom:26px}
+.submenu li{display:flex;align-items:center;justify-content:space-between;height:34px}
+.submenu li a{font-size:14px;font-weight:500;color:var(--tx-2)}
+.submenu li a:hover{color:var(--brand)}
+.star{color:#c8cad0;padding:4px;border-radius:4px}
+.star:hover{color:#9195a1}
+.star[aria-pressed="true"]{color:var(--new)}
+.star[aria-pressed="true"] path{fill:currentColor}
+
+/* 본문 */
+main{flex:1;min-width:0;padding:30px 30px 0}
+.wrap{max-width:1280px;margin:0 auto}
+.search-row{display:flex;gap:10px}
+.search{flex:1;min-width:0;height:38px;border:1px solid var(--bd);border-radius:19px;display:flex;align-items:center;gap:6px;padding:0 14px 0 16px;background:#fff}
+.search:focus-within{border-color:var(--brand)}
+.chips{display:flex;gap:6px;flex:none}
+.chip{display:inline-flex;align-items:center;gap:4px;height:24px;padding:0 6px 0 10px;border-radius:12px;background:var(--brand-50);color:var(--brand);font-size:13px;font-weight:500;white-space:nowrap}
+.chip button{color:var(--brand);display:grid;place-items:center;width:16px;height:16px;border-radius:8px}
+.chip button:hover{background:#dfe1ff}
+.search input{flex:1;min-width:0;border:0;outline:0;font:inherit;font-size:14px;color:var(--tx);background:none}
+.search input::placeholder{color:var(--tx-muted)}
+.search .go{color:var(--tx-label);padding:4px}
+.btn-screener{height:38px;padding:0 18px;border:1px solid #c9c5f0;border-radius:19px;color:var(--brand);font-size:14px;font-weight:600;display:flex;align-items:center;gap:4px;background:#fff;white-space:nowrap}
+.btn-screener:hover{background:var(--brand-50)}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px;align-items:center}
+.box{height:32px;border:1px solid var(--bd);border-radius:16px;display:inline-flex;align-items:center;gap:6px;padding:0 12px 0 14px;background:#fff;font-size:14px;font-weight:500;position:relative;white-space:nowrap}
+.box:hover{border-color:#c8cad0}
+.box .lbl{color:var(--tx-label);font-weight:500;display:inline-flex;align-items:center;gap:3px}
+.box.open{border-color:var(--brand)}
+.seg{display:inline-flex;gap:2px;height:32px;align-items:center}
+.seg button{height:28px;padding:0 10px;border-radius:14px;font-size:14px;font-weight:500;color:var(--tx)}
+.seg button:hover{background:var(--bg-3)}
+.seg button[aria-pressed="true"]{background:var(--brand);color:#fff}
+.menu{position:absolute;top:36px;left:0;min-width:100%;background:#fff;border:1px solid var(--bd);border-radius:8px;box-shadow:0 6px 20px rgba(23,24,28,.12);padding:6px;z-index:15;display:none}
+.box.open .menu{display:block}
+.menu button{display:flex;width:100%;text-align:left;height:32px;align-items:center;padding:0 10px;border-radius:6px;font-size:14px;font-weight:500;white-space:nowrap}
+.menu button:hover{background:var(--bg-hover)}
+.menu button[aria-selected="true"]{color:var(--brand);background:var(--brand-50)}
+.date-pop{position:absolute;top:36px;left:0;background:#fff;border:1px solid var(--bd);border-radius:8px;box-shadow:0 6px 20px rgba(23,24,28,.12);padding:12px;z-index:15;display:none;gap:8px;align-items:center}
+.date-pop.show{display:flex}
+.date-pop input{height:32px;border:1px solid var(--bd);border-radius:6px;padding:0 8px;font:inherit}
+
+/* 탭 + 표 */
+.tabbar{display:flex;justify-content:space-between;align-items:center;margin-top:20px;height:44px}
+.tabs{display:flex;gap:6px;height:44px}
+.tabs button{padding:0 10px;font-size:14px;font-weight:600;color:var(--tx-muted);position:relative;height:44px}
+.tabs button:hover{color:var(--tx-sec)}
+.tabs button[aria-selected="true"]{color:var(--brand)}
+.tabs button[aria-selected="true"]::after{content:"";position:absolute;left:10px;right:10px;bottom:0;height:2px;background:var(--brand)}
+.tab-right{display:flex;align-items:center;gap:8px}
+.count{color:var(--tx-read);font-size:14px}
+.flat-select{border:1px solid var(--bd);height:32px;border-radius:6px;padding:0 10px 0 14px;display:inline-flex;align-items:center;gap:2px;font-size:14px;font-weight:500;position:relative;background:#fff}
+.flat-select .menu{left:auto;right:0}
+.flat-select.open .menu{display:block}
+
+table{width:100%;border-collapse:collapse;table-layout:fixed;border-top:1px solid var(--bd)}
+thead th{height:32px;background:var(--bg-2);font-size:13px;font-weight:500;color:var(--tx-th);border-bottom:1px solid var(--bd);padding:0 6px 0 10px;text-align:left;white-space:nowrap}
+thead th.c{text-align:center;padding:0 4px}
+thead th.r{text-align:right;padding:0 9px 0 6px}
+thead th button{display:inline-flex;align-items:center;gap:2px;font-weight:500;color:inherit;font-size:13px}
+thead th[aria-sort="ascending"] button,thead th[aria-sort="descending"] button{color:var(--brand)}
+.sort{width:10px;height:16px;color:var(--tx-muted)}
+th[aria-sort="descending"] .sort .dn,th[aria-sort="ascending"] .sort .up{color:var(--brand)}
+tbody td{height:32px;border-bottom:1px solid var(--bd-light);padding:0 6px 0 10px;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+tbody tr:hover td{background:var(--bg-hover)}
+td.date{color:var(--tx-sec);padding:0 4px;text-overflow:clip}
+td.c{text-align:center}
+td.r{text-align:right;padding-right:10px}
+.cell{display:flex;align-items:center;gap:6px;min-width:0}
+.cell .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mtag{flex:none;height:19px;line-height:19px;padding:0 6px;border-radius:3px;background:var(--brand-50);color:var(--brand);font-size:11px;font-weight:500}
+.lock{flex:none;height:20px;line-height:20px;padding:0 6px;border-radius:3px;background:var(--bg-3);color:var(--tx-cap);font-size:11px;font-weight:500}
+.title-link{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.title-link:hover{text-decoration:underline}
+.read .title-link{color:var(--tx-read)}
+.sign{display:inline-flex;align-items:center;justify-content:center;width:12px;height:12px;font-size:10px;font-weight:700}
+.sign.inc{color:var(--inc)} .sign.dec{color:var(--dec)} .sign.new{color:var(--new)} .sign.eq{color:var(--flat)}
+.price{display:inline-flex;align-items:center;gap:6px;justify-content:flex-end;width:100%}
+.price .sign{margin-right:auto}
+.empty td{height:200px;text-align:center;color:var(--tx-label)}
+
+.pager{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:20px;height:30px}
+.pager button{min-width:26px;height:26px;border-radius:6px;font-size:13px;font-weight:500;color:var(--tx-muted);display:grid;place-items:center}
+.pager button:hover:not(:disabled){background:var(--bg-3);color:var(--tx-sec)}
+.pager button[aria-current="page"]{background:var(--brand-50);color:var(--brand)}
+.pager button:disabled{opacity:.35;cursor:default}
+
+.disclaimer{margin:40px 0 30px;border:1px solid var(--bd-light);background:var(--bg-2);border-radius:8px;padding:18px 24px;color:var(--tx-foot);font-size:12px;line-height:1.6}
+
+/* 오른쪽 */
+.side{width:260px;flex:none;background:var(--bg-2);padding:14px 10px 20px;position:sticky;top:54px;height:calc(100vh - 54px);overflow:auto}
+.side-head{display:flex;justify-content:space-between;align-items:flex-start;padding:4px 8px 12px;border-bottom:1px solid var(--bd)}
+.side-head h2{font-size:17px;font-weight:700;color:var(--tx-2)}
+.side-head .when{text-align:right;font-size:12px;color:var(--tx-sec);line-height:1.4}
+.side-head .when span{color:var(--tx-cap);display:block}
+.side section{padding:14px 8px 4px}
+.side h3{font-size:14px;font-weight:600;color:var(--brand);margin-bottom:8px;display:flex;align-items:center;gap:2px}
+.side ol,.side ul{list-style:none}
+.side li{height:20px;font-size:13px;display:flex;align-items:center;gap:8px;color:var(--tx-2);margin-bottom:0}
+.side li .rk{font-size:11px;font-weight:700;width:8px}
+.side li .mv{font-size:9px;width:8px}
+.side li .mv.up{color:var(--inc)} .side li .mv.down{color:var(--dec)} .side li .mv.flat{color:var(--flat)}
+.side li a{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
+.side li a:hover{color:var(--brand);text-decoration:underline}
+.side ul li::before{content:"·";color:var(--tx-label)}
+.side .nodata{font-size:13px;color:#838895;text-align:center;padding:16px 0}
+.rail.right{border-right:0;border-left:1px solid var(--bd-light);background:var(--bg-2)}
+.rail-btn .ico.sel{background:var(--brand-50)}
+
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:#2d3139;color:#fff;font-size:13px;padding:10px 16px;border-radius:8px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:50}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
+@media (max-width:1500px){.side,.rail.right{display:none}}
+@media (max-width:1100px){.submenu{display:none}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="logo" href="#" aria-label="WiseReport 처음으로">WiseReport</a>
+  <h1 class="page-title">통합 조회
+    <button class="info" aria-label="통합 조회 설명">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor"/><path d="M8 7.2v3.6M8 5.2v.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <span class="tip" role="tooltip">증권사 리포트를 한곳에서 찾아보는 화면이에요.</span>
+    </button>
+  </h1>
+  <div class="top-actions">
+    <button class="btn-text" data-toast="로그인 화면으로 이동해요.">로그인</button>
+    <button class="btn-ot" data-toast="서비스 소개로 이동해요.">서비스 소개</button>
+    <button class="btn-fill" data-toast="플랜 구독 화면으로 이동해요.">플랜 구독</button>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="rail" aria-label="주 메뉴">
+    <div class="rail-group">
+      <button class="rail-btn"><span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="5.5" height="5.5" rx="1"/><rect x="11.5" y="3" width="5.5" height="5.5" rx="1"/><rect x="3" y="11.5" width="5.5" height="5.5" rx="1"/><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1"/></svg></span>전체 메뉴</button>
+      <button class="rail-btn"><span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 2.8l2.2 4.5 4.9.7-3.6 3.5.9 4.9L10 14l-4.4 2.4.9-4.9L2.9 8l4.9-.7z" stroke-linejoin="round"/></svg></span>즐겨찾기</button>
+      <button class="rail-btn"><span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="2.8" width="12" height="14.4" rx="1.5"/><path d="M7 7h6M7 10h6M7 13h4"/></svg></span>리포트</button>
+      <button class="rail-btn on" aria-current="true"><span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="10" r="7"/><path d="M10 3v7h7"/></svg></span>분석</button>
+      <button class="rail-btn"><span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="9.5" cy="9.5" r="3"/><path d="M11.8 11.8l2.4 2.4" stroke-linecap="round"/></svg></span>탐색</button>
+      <button class="rail-btn"><span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 2.8h7l3 3v11.4H5z"/><path d="M8 9h4M8 12h4M8 15h2"/></svg></span>인사이트</button>
+    </div>
+    <div class="rail-group">
+      <button class="rail-btn"><span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="10" r="2.6"/><path d="M10 2.5v2.2M10 15.3v2.2M2.5 10h2.2M15.3 10h2.2M4.7 4.7l1.6 1.6M13.7 13.7l1.6 1.6M4.7 15.3l1.6-1.6M13.7 6.3l1.6-1.6"/></svg></span>설정</button>
+      <button class="rail-btn"><span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="7" r="3.2"/><path d="M3.8 17c.8-3.2 3.2-4.8 6.2-4.8s5.4 1.6 6.2 4.8"/></svg></span>내 정보</button>
+    </div>
+  </nav>
+
+  <aside class="submenu" aria-label="분석 메뉴">
+    <h2>분석</h2>
+    <div id="submenu"></div>
+  </aside>
+
+  <main>
+    <div class="wrap">
+      <div class="search-row">
+        <form class="search" id="searchForm" role="search">
+          <div class="chips" id="chips"></div>
+          <input id="q" type="search" autocomplete="off" aria-label="리포트 검색" placeholder="종목, 작성자, 제목, 제목+본문 검색 (중복 검색 가능, 최대 5개)">
+          <button class="go" aria-label="검색"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="5.5"/><path d="M12.2 12.2l3.3 3.3" stroke-linecap="round"/></svg></button>
+        </form>
+        <button class="btn-screener" data-toast="리포트 스크리너로 이동해요.">리포트 스크리너 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h9.5M9 4.5L12.5 8 9 11.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+
+      <div class="filters">
+        <div class="box" id="dateBox">
+          <span class="lbl">발간일 <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5.5" fill="#c8cad0"/><path d="M6 5.4v3M6 3.6v.1" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+          <button id="dateText" class="num" aria-haspopup="dialog">2024.03.30~2024.05.31</button>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#5c6270" stroke-width="1.4"><path d="M4.5 6.5L8 10l3.5-3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="date-pop" id="datePop" role="dialog" aria-label="발간일 직접 입력">
+            <input type="date" id="d1" aria-label="시작일"> ~ <input type="date" id="d2" aria-label="종료일">
+            <button class="btn-fill" id="dateApply">적용</button>
+          </div>
+        </div>
+        <div class="seg" id="period" role="group" aria-label="기간">
+          <button aria-pressed="true" data-days="1">1일</button><button aria-pressed="false" data-days="7">7일</button><button aria-pressed="false" data-months="1">1개월</button><button aria-pressed="false" data-months="3">3개월</button><button aria-pressed="false" data-months="12">1년</button><button aria-pressed="false" data-custom>직접입력</button>
+        </div>
+        <div class="box dd" data-key="industry"><span class="lbl">산업</span><button class="val" aria-haspopup="listbox">전체</button><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#5c6270" stroke-width="1.4"><path d="M4.5 6.5L8 10l3.5-3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="menu" role="listbox"></div></div>
+        <div class="box dd" data-key="provider"><span class="lbl">제공사</span><button class="val" aria-haspopup="listbox">전체</button><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#5c6270" stroke-width="1.4"><path d="M4.5 6.5L8 10l3.5-3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="menu" role="listbox"></div></div>
+        <div class="box dd" data-key="pages"><span class="lbl">페이지수</span><button class="val" aria-haspopup="listbox">전체</button><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#5c6270" stroke-width="1.4"><path d="M4.5 6.5L8 10l3.5-3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="menu" role="listbox"></div></div>
+      </div>
+
+      <div class="tabbar">
+        <div class="tabs" role="tablist" id="tabs"></div>
+        <div class="tab-right">
+          <span class="count num" id="count" aria-live="polite"></span>
+          <div class="flat-select" id="sizeSel"><button class="val" aria-haspopup="listbox"><span id="sizeText">15개씩 보기</span></button><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#5c6270" stroke-width="1.4"><path d="M4.5 6.5L8 10l3.5-3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="menu" role="listbox"></div></div>
+        </div>
+      </div>
+
+      <table aria-label="리포트 목록">
+        <colgroup><col style="width:90px"><col style="width:170px"><col><col style="width:130px"><col style="width:115px"><col style="width:125px"><col style="width:105px"><col style="width:70px"></colgroup>
+        <thead><tr id="thead"></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+
+      <nav class="pager" id="pager" aria-label="쪽 이동"></nav>
+
+      <p class="disclaimer">와이즈 리포트에서 제공하는 모든 정보는 투자 판단에 참고하실 수 있도록 제공되는 자료이며, 특정 종목의 매매를 권유하기 위한 것이 아닙니다. 데이터에 오류가 있거나 업데이트가 지연될 수 있으며, 투자 결정과 그 결과에 대한 책임은 전적으로 이용자 본인에게 있습니다.  사전 허가 없이 본 정보를 무단으로 사용하거나 데이터베이스화할 경우 민·형사상 책임을 물을 수 있습니다.</p>
+    </div>
+  </main>
+
+  <aside class="side" aria-label="오늘의 픽">
+    <div class="side-head"><h2>오늘의 픽</h2><div class="when">2026년 6월 24일 수요일<span>10:00 기준</span></div></div>
+    <section><h3>요즘 많이 찾는 산업</h3><ol id="hotInd"></ol></section>
+    <section><h3>투자자들이 주목하는 종목</h3><p class="nodata">표시할 데이터가 없어요.</p></section>
+    <section><h3><a href="#">많이 보는 리포트 ›</a></h3><ul class="rlist" data-list="hot"></ul></section>
+    <section><h3><a href="#">새로 올라온 리포트 ›</a></h3><ul class="rlist" data-list="new"></ul></section>
+    <section><h3><a href="#">최근 본 리포트 ›</a></h3><ul class="rlist" data-list="recent"></ul></section>
+  </aside>
+
+  <nav class="rail right" aria-label="보조 메뉴">
+    <div class="rail-group">
+      <button class="rail-btn on"><span class="ico sel"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3.5" y="5" width="13" height="11" rx="2"/><path d="M7 5V3.5h6V5M3.5 9h13"/></svg></span>오늘의 픽</button>
+      <button class="rail-btn"><span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 16.5S3 12.3 3 7.6A3.6 3.6 0 0110 6a3.6 3.6 0 017 1.6c0 4.7-7 8.9-7 8.9z" stroke-linejoin="round"/></svg></span>관심 설정</button>
+    </div>
+    <div class="rail-group">
+      <button class="rail-btn"><span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="10" r="7"/><path d="M10 9v4.5M10 6.5v.1" stroke-linecap="round"/></svg></span>서비스 정보</button>
+    </div>
+  </nav>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* 표 내용: 피그마 원본 화면(14226:34898)의 15줄 그대로. cat = 탭 분류(화면엔 안 보임, 동작용으로 붙인 값) */
+const ROWS=[
+ {date:'2026.06.06',tag:'코스피',name:'나스미디어',title:'2분기부터 세 자리 수 이익 성장 시작',flash:1,author:'유재선',prov:'하나증권',op:'BUY',opS:'dec',tp:19000,tpS:'dec',pages:1,cat:'기업'},
+ {date:'2026.06.06',tag:'코스피',name:'크래프트',title:'매력적인 가격대, 매수 기회',flash:1,author:'이준호',prov:'하나증권',op:'BUY',opS:'eq',tp:9000,tpS:'new',pages:2,cat:'기업'},
+ {date:'2026.06.06',name:'해외주식',title:'주도주의 물리학',flash:1,author:'남궁유성 외 3',award:1,prov:'신영증권',pages:3,cat:'해외'},
+ {date:'2026.06.06',name:'종합',title:'하루에 하나',flash:1,author:'리서치센터',prov:'하나증권',pages:4,cat:'기타'},
+ {date:'2026.06.06',name:'크레딧',title:'글로벌 크레딧 리스크 모니터 7월호: 중앙은행의 인플레 대응과 증가하는 AI 영향력',read:1,author:'이승재',prov:'iM증권',pages:5,cat:'채권'},
+ {date:'2026.06.06',name:'주식전략',title:'전략의 샘-AI 시대의 새로운 선행지표',author:'강현기',prov:'DB증권',pages:6,cat:'주식'},
+ {date:'2026.06.06',name:'ETF',title:'ETF Catch-up Anthropic과 OpenAI를 편입 중인 ETF',author:'장치영',award:1,prov:'하나증권',op:'BUY',opS:'eq',tp:819000,tpS:'eq',pages:7,cat:'펀드∙ETF'},
+ {date:'2026.06.06',name:'퀀트분석',title:'Quantamental-어닝 서프라이즈 종목 찾기(26Q2)',lock:1,author:'김효진, 이상연',award:1,prov:'신영증권',op:'BUY',opS:'dec',tp:8819000,tpS:'dec',pages:8,cat:'주식'},
+ {date:'2026.06.06',tag:'코스피',name:'삼성전기',title:'실적은 성장, 주가는 저점',author:'신은정',prov:'DB증권',op:'BUY',opS:'new',tp:19000,tpS:'new',pages:9,cat:'기업'},
+ {date:'2026.06.06',tag:'코스피',name:'닛폰 신일본제철',title:'무난한 영업실적 지속, US스틸 정상화가 관건',author:'이승준, 김승규',award:1,prov:'하나증권',op:'BUY',opS:'eq',tp:9000,tpS:'eq',pages:10,cat:'기업'},
+ {date:'2026.06.06',name:'채권전략',title:'KB Bond In One 7월 (크레딧) - 조용히 쌓이는 강세의 토대',lock:1,author:'박문현',prov:'KB증권',pages:11,cat:'채권'},
+ {date:'2026.06.06',tag:'코스피',name:'씨어스',title:'AI가 주도하는 생산성 개선',lock:1,author:'김충현',prov:'미래에셋증권',op:'BUY',opS:'inc',tp:9000,tpS:'inc',pages:12,cat:'기업'},
+ {date:'2026.06.06',name:'ETF',title:'월간 ETF 7월호, 반도체 ETF A to Z',author:'하재석',prov:'코리아에셋투자증권',op:'BUY',opS:'eq',tp:9000,tpS:'eq',pages:13,cat:'펀드∙ETF'},
+ {date:'2026.06.06',name:'주식전략',title:'[퀀틴전시 플랜] 대규모 투자에도 반도체 숨 고르기, 코스닥 920선 급등',author:'이경민',prov:'대신증권',pages:14,cat:'주식'},
+ {date:'2026.06.06',name:'건설',title:'건설 Weekly: 3대 메가 프로젝트가 올려주는 건설주',author:'하민호',prov:'하나증권',op:'BUY',opS:'inc',tp:19000,tpS:'inc',pages:15,cat:'산업'}
+];
+const TABS=['전체','기업','산업','경제','주식','채권','해외','파생','펀드∙ETF','기타'];
+const COLS=[
+ {k:'date',l:'발간일',cls:'c'},{k:'name',l:'종목/분류명'},{k:'title',l:'제목'},{k:'author',l:'작성자'},
+ {k:'prov',l:'제공사'},{k:'op',l:'투자의견'},{k:'tp',l:'목표주가',cls:'r'},{k:'pages',l:'페이지수',cls:'c'}
+];
+const SUB={'기업분석':['기업 스냅샷','비즈니스 현황','재무제표','재무비율','투자지표','컨센서스','지분분석','업종분석','금감원 공시','거래소 공시'],'섹터분석':['섹터 동향','섹터 스냅샷'],'ETF/ETN':['ETF 랭킹','ETF 스냅샷','ETF 검색']};
+const HOT=[['자동차','up'],['화장품','up'],['증권','flat'],['에너지','down'],['반도체와반도체장비','up']];
+const LISTS={
+ hot:['[NDR후기] 3개의 이벤트를 주목!','HPA 의 DRAM 시장 진입 본격화 전망','‘AI 인프라 2막’의 병목','반도체, 과거 HMM 사례를 보면 지금이 꼭지일까?','반도체 및 소부장 Weekly: 의심'],
+ new:['[NDR후기] 3개의 이벤트를 주목!','HPA 의 DRAM 시장 진입 본격화 전망','‘AI 인프라 2막’의 병목','반도체, 과거 HMM 사례를 보면 지금이 꼭지일까?','반도체 및 소부장 Weekly: 의심'],
+ recent:['리튬이 견인하는 리레이팅','어닝 개선 기대감은 점차 확대될 전망','자회사 호조가 주가를 지지할 전망','기술분석보고서','＇AI 소부장＇의 비상과 ＇반도체/로봇＇의 바닥 (이격도 업데이트)']
+};
+
+const st={tab:'전체',terms:[],provider:'전체',industry:'전체',pages:'전체',sort:{k:'date',dir:-1},size:15,page:1};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=n=>n.toLocaleString('ko-KR');
+const SIGN={inc:'▲',dec:'▼',new:'N',eq:'='}, SIGNNAME={inc:'상향',dec:'하향',new:'신규',eq:'유지'};
+const ICON={
+ flash:'<svg width="16" height="16" viewBox="0 0 16 16" aria-label="속보" role="img"><path d="M9.2 1.5L3.5 9h4l-1 5.5L12.5 7h-4z" fill="#ffa000"/></svg>',
+ award:'<svg width="14" height="14" viewBox="0 0 16 16" aria-label="베스트 애널리스트" role="img"><path d="M4 2h8v4a4 4 0 01-8 0z" fill="#ffa000"/><path d="M4 3H2v1.5A2.5 2.5 0 004.4 7M12 3h2v1.5A2.5 2.5 0 0111.6 7" stroke="#ffa000" fill="none"/><path d="M7 10h2v2.5h2.5V14h-7v-1.5H7z" fill="#ffa000"/></svg>',
+ sort:'<svg class="sort" viewBox="0 0 10 16" aria-hidden="true"><path class="up" d="M5 3l3 4H2z" fill="currentColor"/><path class="dn" d="M5 13l3-4H2z" fill="currentColor"/></svg>',
+ star:'<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.8l1.8 3.7 4 .6-2.9 2.8.7 4L8 11l-3.6 1.9.7-4L2.2 6.1l4-.6z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>'
+};
+
+function toast(msg){const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),1800);}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-toast]'); if(b) toast(b.dataset.toast);});
+
+/* 왼쪽 메뉴 + 즐겨찾기 */
+let favs=[]; try{favs=JSON.parse(localStorage.getItem('wr-favs')||'[]');}catch(e){}
+$('#submenu').innerHTML=Object.entries(SUB).map(([g,items])=>`<h3>${g}</h3><ul>${items.map(i=>`<li><a href="#">${i}</a><button class="star" aria-label="${i} 즐겨찾기" aria-pressed="${favs.includes(i)}">${ICON.star}</button></li>`).join('')}</ul>`).join('');
+$('#submenu').addEventListener('click',e=>{const s=e.target.closest('.star'); if(!s) return; const name=s.previousElementSibling.textContent; const on=s.getAttribute('aria-pressed')!=='true'; s.setAttribute('aria-pressed',on); favs=on?[...favs,name]:favs.filter(f=>f!==name); try{localStorage.setItem('wr-favs',JSON.stringify(favs));}catch(e){} toast(on?`${name}을(를) 즐겨찾기에 넣었어요.`:`${name}을(를) 즐겨찾기에서 뺐어요.`);});
+
+/* 오른쪽 패널 */
+$('#hotInd').innerHTML=HOT.map(([n,m],i)=>`<li><span class="rk">${i+1}</span><span class="mv ${m}">${m==='up'?'▲':m==='down'?'▼':'–'}</span><a href="#" data-term="${n}">${n}</a></li>`).join('');
+document.querySelectorAll('.rlist').forEach(ul=>ul.innerHTML=LISTS[ul.dataset.list].map(t=>`<li><a href="#" title="${esc(t)}">${esc(t)}</a></li>`).join(''));
+$('#hotInd').addEventListener('click',e=>{const a=e.target.closest('a'); if(!a) return; e.preventDefault(); addTerm(a.dataset.term);});
+
+/* 탭 */
+$('#tabs').innerHTML=TABS.map(t=>`<button role="tab" aria-selected="${t==='전체'}">${t}</button>`).join('');
+$('#tabs').addEventListener('click',e=>{const b=e.target.closest('button'); if(!b) return; st.tab=b.textContent; st.page=1; $('#tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-selected',x===b)); render();});
+
+/* 검색 (낱말 칩, 최대 5개) */
+function addTerm(v){v=v.trim(); if(!v) return; if(st.terms.includes(v)) return; if(st.terms.length>=5){toast('검색어는 5개까지 넣을 수 있어요.');return;} st.terms.push(v); st.page=1; drawChips(); render();}
+function drawChips(){ $('#chips').innerHTML=st.terms.map((t,i)=>`<span class="chip">${esc(t)}<button type="button" data-i="${i}" aria-label="${esc(t)} 검색어 지우기"><svg width="10" height="10" viewBox="0 0 10 10" stroke="currentColor" stroke-width="1.4"><path d="M2 2l6 6M8 2L2 8"/></svg></button></span>`).join(''); $('#q').placeholder=st.terms.length?'검색어 더하기':'종목, 작성자, 제목, 제목+본문 검색 (중복 검색 가능, 최대 5개)'; }
+$('#searchForm').addEventListener('submit',e=>{e.preventDefault(); addTerm($('#q').value); $('#q').value='';});
+$('#q').addEventListener('keydown',e=>{ if(e.key==='Backspace'&&!e.target.value&&st.terms.length){st.terms.pop(); drawChips(); render();} });
+$('#chips').addEventListener('click',e=>{const b=e.target.closest('button'); if(!b) return; st.terms.splice(+b.dataset.i,1); drawChips(); render(); $('#q').focus();});
+
+/* 기간 */
+const pad=n=>String(n).padStart(2,'0'); const dstr=d=>`${d.getFullYear()}.${pad(d.getMonth()+1)}.${pad(d.getDate())}`;
+const TODAY=new Date(2026,5,24);
+$('#period').addEventListener('click',e=>{const b=e.target.closest('button'); if(!b) return;
+  $('#period').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  if('custom' in b.dataset){ openDate(); return; }
+  const s=new Date(TODAY); if(b.dataset.days) s.setDate(s.getDate()-(+b.dataset.days)+1); else s.setMonth(s.getMonth()-(+b.dataset.months));
+  $('#dateText').textContent=`${dstr(s)}~${dstr(TODAY)}`; closeAll();
+});
+function openDate(){ closeAll(); $('#datePop').classList.add('show'); $('#dateBox').classList.add('open'); $('#d1').focus(); }
+$('#dateText').addEventListener('click',e=>{e.stopPropagation(); $('#datePop').classList.contains('show')?closeAll():openDate();});
+$('#datePop').addEventListener('click',e=>e.stopPropagation());
+$('#dateApply').addEventListener('click',()=>{const a=$('#d1').value,b=$('#d2').value; if(!a||!b){toast('시작일과 종료일을 모두 골라 주세요.');return;} if(a>b){toast('시작일이 종료일보다 늦어요. 날짜를 다시 골라 주세요.');return;} $('#dateText').textContent=`${a.replaceAll('-','.')}~${b.replaceAll('-','.')}`; $('#period').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','custom' in x.dataset)); closeAll();});
+
+/* 펼침 목록 */
+const OPTS={
+  industry:['전체',...new Set(ROWS.filter(r=>!r.tag).map(r=>r.name))],
+  provider:['전체',...new Set(ROWS.map(r=>r.prov))],
+  pages:['전체','1~5쪽','6~10쪽','11쪽 이상']
+};
+document.querySelectorAll('.dd').forEach(box=>{
+  const key=box.dataset.key, menu=box.querySelector('.menu');
+  menu.innerHTML=OPTS[key].map(o=>`<button role="option" aria-selected="${o==='전체'}">${o}</button>`).join('');
+  box.querySelector('.val').addEventListener('click',e=>{e.stopPropagation(); const was=box.classList.contains('open'); closeAll(); if(!was) box.classList.add('open');});
+  menu.addEventListener('click',e=>{const b=e.target.closest('button'); if(!b) return; e.stopPropagation(); st[key]=b.textContent; box.querySelector('.val').textContent=b.textContent; menu.querySelectorAll('button').forEach(x=>x.setAttribute('aria-selected',x===b)); st.page=1; closeAll(); render();});
+});
+const sizeSel=$('#sizeSel'); sizeSel.querySelector('.menu').innerHTML=[10,15,30,50].map(n=>`<button role="option" data-n="${n}" aria-selected="${n===15}">${n}개씩 보기</button>`).join('');
+sizeSel.querySelector('.val').addEventListener('click',e=>{e.stopPropagation(); const was=sizeSel.classList.contains('open'); closeAll(); if(!was) sizeSel.classList.add('open');});
+sizeSel.querySelector('.menu').addEventListener('click',e=>{const b=e.target.closest('button'); if(!b) return; e.stopPropagation(); st.size=+b.dataset.n; st.page=1; $('#sizeText').textContent=b.textContent; sizeSel.querySelectorAll('.menu button').forEach(x=>x.setAttribute('aria-selected',x===b)); closeAll(); render();});
+function closeAll(){document.querySelectorAll('.box.open,.flat-select.open').forEach(x=>x.classList.remove('open')); $('#datePop').classList.remove('show');}
+document.addEventListener('click',closeAll);
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeAll();});
+
+/* 머리칸 정렬 */
+function drawHead(){
+  $('#thead').innerHTML=COLS.map(c=>{const on=st.sort.k===c.k; return `<th scope="col" class="${c.cls||''}" aria-sort="${on?(st.sort.dir>0?'ascending':'descending'):'none'}"><button data-k="${c.k}">${c.l}${ICON.sort}</button></th>`;}).join('');
+}
+$('#thead').addEventListener('click',e=>{const b=e.target.closest('button'); if(!b) return; const k=b.dataset.k; st.sort=st.sort.k===k?{k,dir:-st.sort.dir}:{k,dir:k==='date'?-1:1}; render();});
+
+/* 걸러내기 + 그리기 */
+function rowsNow(){
+  let r=ROWS.map((x,i)=>({...x,i}));
+  if(st.tab!=='전체') r=r.filter(x=>x.cat===st.tab);
+  if(st.provider!=='전체') r=r.filter(x=>x.prov===st.provider);
+  if(st.industry!=='전체') r=r.filter(x=>x.name===st.industry);
+  if(st.pages!=='전체') r=r.filter(x=>st.pages==='1~5쪽'?x.pages<=5:st.pages==='6~10쪽'?x.pages>5&&x.pages<=10:x.pages>10);
+  if(st.terms.length) r=r.filter(x=>st.terms.every(t=>[x.name,x.title,x.author,x.prov].join(' ').toLowerCase().includes(t.toLowerCase())));
+  const {k,dir}=st.sort;
+  r.sort((a,b)=>{let A=a[k],B=b[k]; if(A==null&&B==null) return a.i-b.i; if(A==null) return 1; if(B==null) return -1; const c=typeof A==="number"?A-B:String(A).localeCompare(String(B),"ko"); return c?c*dir:a.i-b.i;});
+  return r;
+}
+function signHtml(s){return s?`<span class="sign ${s}" title="${SIGNNAME[s]}" aria-label="${SIGNNAME[s]}">${SIGN[s]}</span>`:'';}
+function render(){
+  drawHead();
+  const all=rowsNow(), pages=Math.max(1,Math.ceil(all.length/st.size)); st.page=Math.min(st.page,pages);
+  const view=all.slice((st.page-1)*st.size, st.page*st.size);
+  $('#count').textContent=`${fmt(all.length)}개`;
+  $('#tbody').innerHTML=view.length?view.map(r=>`<tr class="${r.read?'read':''}" data-i="${r.i}">
+    <td class="date c num">${r.date}</td>
+    <td><div class="cell">${r.tag?`<span class="mtag">${r.tag}</span>`:''}<span class="t">${esc(r.name)}</span></div></td>
+    <td><div class="cell">${r.flash?ICON.flash:''}${r.lock?'<span class="lock">본문 제한</span>':''}<a href="#" class="title-link" title="${esc(r.title)}">${esc(r.title)}</a></div></td>
+    <td><div class="cell">${r.award?ICON.award:''}<span class="t">${esc(r.author)}</span></div></td>
+    <td><span class="t">${esc(r.prov)}</span></td>
+    <td><div class="cell">${signHtml(r.opS)}${r.op||''}</div></td>
+    <td class="r num">${r.tp?`<span class="price">${signHtml(r.tpS)}${fmt(r.tp)}</span>`:''}</td>
+    <td class="c num">${r.pages}</td></tr>`).join('')
+    :`<tr class="empty"><td colspan="8">조건에 맞는 리포트가 없어요. 검색어나 필터를 줄여 보세요.</td></tr>`;
+  const P=st.page, start=Math.floor((P-1)/10)*10+1, end=Math.min(pages,start+9);
+  const nums=[]; for(let n=start;n<=end;n++) nums.push(`<button data-p="${n}" ${n===P?'aria-current="page"':''} aria-label="${n}쪽">${n}</button>`);
+  const arrow=(p,lbl,svg,dis)=>`<button data-p="${p}" aria-label="${lbl}" ${dis?'disabled':''}>${svg}</button>`;
+  const L='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8.5 3L4.5 7l4 4"/></svg>', LL='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 3L3 7l4 4M11 3L7 7l4 4"/></svg>';
+  const R=L.replace('M8.5 3L4.5 7l4 4','M5.5 3l4 4-4 4'), RR=LL.replace('M7 3L3 7l4 4M11 3L7 7l4 4','M3 3l4 4-4 4M7 3l4 4-4 4');
+  $('#pager').innerHTML=arrow(1,'처음 쪽',LL,P===1)+arrow(P-1,'이전 쪽',L,P===1)+nums.join('')+arrow(P+1,'다음 쪽',R,P===pages)+arrow(pages,'마지막 쪽',RR,P===pages);
+}
+$('#pager').addEventListener('click',e=>{const b=e.target.closest('button'); if(!b||b.disabled) return; st.page=+b.dataset.p; render();});
+$('#tbody').addEventListener('click',e=>{const a=e.target.closest('.title-link'); if(!a) return; e.preventDefault(); const tr=a.closest('tr'); const r=ROWS[+tr.dataset.i]; if(r.lock){toast('본문 제한 리포트예요. 플랜 구독 뒤에 볼 수 있어요.');return;} r.read=1; tr.classList.add('read'); toast('리포트를 열었어요. (읽은 리포트는 제목이 흐려져요)');});
+
+drawChips(); render();
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>통합 조회 · WiseReport</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;font-family:"Wanted Sans Variable","Wanted Sans",Pretendard,"Noto Sans KR",sans-serif;-webkit-font-smoothing:antialiased;color:#121317}
+svg{overflow:visible}
+.page{width:1920px;min-height:1081px;display:flex;flex-direction:column;background:#fff}
+.container-area{width:1920px;height:941px;display:flex;justify-content:space-between;align-items:flex-start}
+.main-contents{width:1280px;height:941px;display:flex;flex-direction:column;padding-top:30px;flex:none}
+/* 피그마에서 크기 없이 나온 아이콘 크기 */
+svg[data-n="right-content"]{width:24px;height:24px}
+svg[data-n="service-tag"]{width:16px;height:16px}
+svg[data-n="left-arrow"],svg[data-n="right-arrow"]{width:60px;height:30px}
+/* 피그마에서 뽑은 스타일 */
+/*@@CSS*/
+/* 동작용 덧붙임 */
+[data-n="tab"],[data-n="service-sub-tab-btn"],[data-n="segment-base-new"],[data-n="box-text-select"],[data-n="box-date-select"],[data-n="flat-select"],[data-n="table-header-1line"],[data-n="pagination-btn"],[data-n="btn-uiform"],[data-n="btn-login"],[data-n="btn-ot-primary"],[data-n="btn-fill-primary"],[data-n="menu/item-2d-menu"],[data-n=" menu-ui-icon"],[data-n="stock-item"],[data-n="menu/ui-icon-favorite"],[data-n="menu/ui-icon-action"],[data-n="left-arrow"],[data-n="right-arrow"],[data-n="icon/carousel-arrow"]{cursor:pointer;user-select:none}
+.live [data-n="row"]:hover{background:#fafafb}
+[data-n="cell-text-link"]:nth-child(3) span:last-child{cursor:pointer}
+[data-n="cell-text-link"]:nth-child(3) span:last-child:hover{text-decoration:underline}
+[data-n="menu/item-2d-menu"]:hover{background:#f2f2f3}
+[data-n="stock-item"].rj:hover{background:#f2f2f3}
+.inp{border:0;outline:0;background:transparent;font-family:inherit;color:#121317;width:100%}
+/* 피그마에서 아이콘 틀의 배경색이 SVG에 안 담겨 따로 넣음 */
+.rx .rv:first-child .rt:nth-child(2) svg{background:#d7d7fe;border-radius:6px}
+.inp::placeholder{color:#acb0b9}
+.qchip{flex:none;display:inline-flex;align-items:center;gap:4px;height:24px;padding:0 6px 0 10px;border-radius:999px;background:#f0f1ff;color:#594fc8;font-size:13px;font-weight:500;white-space:pre}
+.qchip b{font-weight:500;cursor:pointer;width:16px;height:16px;display:grid;place-items:center;border-radius:8px}
+.qchip b:hover{background:#e0e2ff}
+.pop{position:absolute;z-index:30;background:#fff;border-radius:8px;box-shadow:0 0 0 1px #e7e8e9,0 6px 20px rgba(23,24,28,.12);padding:6px;min-width:120px}
+.pop button{display:flex;width:100%;height:32px;align-items:center;padding:0 10px;border:0;background:none;border-radius:6px;font:inherit;font-size:14px;color:#121317;cursor:pointer;white-space:pre}
+.pop button:hover{background:#f7f7f8}
+.pop button.sel{color:#594fc8;background:#f0f1ff}
+.pop .dates{display:flex;gap:6px;align-items:center;padding:4px;font-size:14px}
+.pop input[type=date]{height:32px;border:0;box-shadow:inset 0 0 0 1px #e7e8e9;border-radius:6px;padding:0 8px;font:inherit;font-size:13px}
+.pop .apply{width:auto;background:#594fc8;color:#fff;justify-content:center;padding:0 14px}
+.pop .apply:hover{background:#4a41b3}
+.empty-row{height:120px;display:flex;align-items:center;justify-content:center;color:#747b8b;font-size:14px;align-self:stretch;box-shadow:inset 0 -1px 0 #ecedee}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);background:#2d3139;color:#fff;font-size:13px;padding:10px 16px;border-radius:8px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:50}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><!--@@DEFS--><symbol id="ls8f" viewBox="0 0 16 16" fill="none"><path d="M8.00 12.27L3.67 14.5L4.50 9.79L1 6.46L5.83 5.77L8 1.5L10.16 5.77L15 6.46L11.49 9.79L12.32 14.5L8.00 12.27Z" fill="#FFA000" stroke="#FFA000" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
+<div class="page" data-n="이걸로 HTML 만들어봐">
+<!--@@NAV-->
+<div class="container-area" data-n="container-area">
+<!--@@LEFT-->
+<div class="main-contents" data-n="main-contents">
+<!--@@CONTENTS-->
+<!--@@FOOTER-->
+</div>
+<!--@@RIGHT-->
+</div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const N=n=>`[data-n="${n}"]`;
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1800);}
+const swap=(el,from,to)=>{el.classList.remove(from);el.classList.add(to);};
+
+/* ---- 표 데이터 읽기 ---- */
+const list=$(N('table-list'));
+const rows=$$(':scope > '+N('row'),list).map((el,i)=>{const c=[...el.children];const tx=k=>c[k].textContent.trim();
+  return {el,i,date:tx(0),name:c[1].querySelector('span:last-child').textContent.trim(),title:c[2].querySelector('span:last-child').textContent.trim(),author:tx(3),prov:tx(4),op:tx(5),tp:+tx(6).replace(/,/g,''),eps:+tx(7).replace(/,/g,''),pages:+tx(8)};});
+const st={q:[],prov:'전체',ind:'전체',pages:'전체',sort:{k:0,dir:-1},size:15,page:1};
+const KEYS=['date','name','title','author','prov','op','tp','eps','pages'];
+const countEl=$(N('result-report')+' span'), count0=countEl.textContent;
+let emptyEl=null;
+function apply(){
+  let r=rows.filter(x=>(st.prov==='전체'||x.prov===st.prov)
+    &&(st.pages==='전체'||(st.pages==='1~5쪽'?x.pages<=5:st.pages==='6~10쪽'?x.pages>5&&x.pages<=10:x.pages>10))
+    &&st.q.every(q=>[x.name,x.title,x.author,x.prov].join(' ').toLowerCase().includes(q.toLowerCase())));
+  const k=KEYS[st.sort.k],d=st.sort.dir;
+  r.sort((a,b)=>{const A=a[k],B=b[k];const c=typeof A==='number'?A-B:String(A).localeCompare(String(B),'ko');return c?c*d:a.i-b.i;});
+  rows.forEach(x=>x.el.style.display='none');
+  const view=r.slice((st.page-1)*st.size,st.page*st.size);
+  view.forEach(x=>{x.el.style.display='';list.appendChild(x.el);});
+  if(emptyEl){emptyEl.remove();emptyEl=null;}
+  if(!view.length){emptyEl=document.createElement('div');emptyEl.className='empty-row';emptyEl.textContent='조건에 맞는 리포트가 없어요. 검색어나 필터를 줄여 보세요.';list.appendChild(emptyEl);}
+  const filtered=st.q.length||st.prov!=='전체'||st.pages!=='전체';
+  countEl.textContent=filtered?`${r.length.toLocaleString('ko-KR')}개`:count0;
+  st.total=r.length;
+}
+/* 첫 화면은 피그마 그대로(3번째 줄 마우스 올린 모양). 표에 마우스가 들어오면 실제 마우스 위치를 따라감 */
+list.addEventListener('mouseenter',()=>{$$('.m2c',list).forEach(e=>swap(e,'m2c','m26'));document.body.classList.add('live');},{once:true});
+
+/* ---- 정렬 (머리칸) ---- */
+const heads=$$(N('table-header-1line'));
+heads.forEach((h,i)=>h.addEventListener('click',()=>{
+  st.sort=st.sort.k===i?{k:i,dir:-st.sort.dir}:{k:i,dir:i===0?-1:1};
+  heads.forEach((x,j)=>{const on=j===st.sort.k;const t=x.querySelector('span');t.classList.toggle('m1c',on);t.classList.toggle('m1f',!on);
+    const u=x.querySelector('use');u.setAttribute('href',on?'#ms4':'#ms5');x.querySelector('svg').style.transform=on&&st.sort.dir>0?'rotate(180deg)':'';});
+  st.page=1;setPage(1);apply();}));
+
+/* ---- 검색 (낱말 칩, 최대 5개) ---- */
+function makeInput(span,ph,onEnter){const inp=document.createElement('input');inp.className=span.className+' inp';inp.placeholder=ph;inp.setAttribute('aria-label',ph);span.replaceWith(inp);
+  inp.addEventListener('keydown',e=>{if(e.isComposing)return;if(e.key==='Enter'){onEnter(inp.value.trim());inp.value='';}if(e.key==='Backspace'&&!inp.value)onEnter(null);});return inp;}
+const mainBar=$(N('service-search-bar'));
+const chipBox=document.createElement('div');chipBox.style.cssText='display:flex;gap:6px;flex:none';
+const mainPh=$(N('placeholder'),mainBar);mainPh.parentElement.insertBefore(chipBox,mainPh);
+const mainInp=makeInput(mainPh,'종목, 작성자, 제목, 제목+본문 검색 (중복 검색 가능, 최대 5개)',v=>{
+  if(v===null){if(st.q.length){st.q.pop();drawChips();}return;} if(!v)return;
+  if(st.q.length>=5){toast('검색어는 5개까지 넣을 수 있어요.');return;} if(!st.q.includes(v))st.q.push(v);drawChips();});
+function drawChips(){chipBox.innerHTML=st.q.map((q,i)=>`<span class="qchip">${q.replace(/[<&]/g,'')}<b data-i="${i}" role="button" aria-label="${q} 지우기">×</b></span>`).join('');mainInp.placeholder=st.q.length?'':'종목, 작성자, 제목, 제목+본문 검색 (중복 검색 가능, 최대 5개)';st.page=1;setPage(1);apply();}
+chipBox.addEventListener('click',e=>{const b=e.target.closest('b');if(!b)return;st.q.splice(+b.dataset.i,1);drawChips();mainInp.focus();});
+$(N('right-content'),mainBar).addEventListener('click',()=>{const v=mainInp.value.trim();if(v){mainInp.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter'}));}else mainInp.focus();});
+
+/* ---- 펼침 목록 ---- */
+let pop=null;
+function closePop(){if(pop){pop.remove();pop=null;}}
+document.addEventListener('click',e=>{if(pop&&!pop.contains(e.target)&&!e.target.closest('[data-pop]'))closePop();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePop();});
+function openPop(anchor,build){closePop();const r=anchor.getBoundingClientRect();pop=document.createElement('div');pop.className='pop';pop.style.left=(r.left+scrollX)+'px';pop.style.top=(r.bottom+scrollY+4)+'px';build(pop);document.body.appendChild(pop);
+  const pr=pop.getBoundingClientRect();if(pr.right>innerWidth-8)pop.style.left=(r.right+scrollX-pr.width)+'px';}
+function menu(anchor,opts,cur,onPick){openPop(anchor,p=>{opts.forEach(o=>{const b=document.createElement('button');b.textContent=o;if(o===cur)b.className='sel';b.onclick=()=>{onPick(o);closePop();};p.appendChild(b);});});}
+const selects=$$(N('box-text-select'));
+const OPTS={산업:['전체','반도체','자동차','화장품','바이오','음식료','유통'],제공사:['전체',...new Set(rows.map(r=>r.prov))],페이지수:['전체','1~5쪽','6~10쪽','11쪽 이상']};
+selects.forEach(b=>{b.dataset.pop='1';const lbl=b.querySelector('span').textContent;const val=b.querySelectorAll('span')[1];
+  b.addEventListener('click',()=>menu(b,OPTS[lbl],val.textContent,o=>{val.textContent=o;
+    if(lbl==='제공사')st.prov=o; if(lbl==='페이지수')st.pages=o; if(lbl==='산업'){st.ind=o;if(o!=='전체')toast('예시 표에는 산업 정보가 없어서 이름만 바뀌어요.');}
+    st.page=1;setPage(1);apply();}));});
+const sizeBox=$(N('flat-select'));sizeBox.dataset.pop='1';
+sizeBox.addEventListener('click',()=>menu(sizeBox,['10개씩 보기','15개씩 보기','30개씩 보기','50개씩 보기'],sizeBox.querySelector('span').textContent,o=>{sizeBox.querySelector('span').textContent=o;st.size=parseInt(o);st.page=1;setPage(1);apply();}));
+
+/* ---- 기간 ---- */
+const dateBox=$(N('box-date-select')), dateText=$(N('date'),dateBox);dateBox.dataset.pop='1';
+const segs=$$(N('segment-base-new'));
+function selSeg(i){segs.forEach((s,j)=>{const on=i===j;const sp=s.querySelector('span');s.classList.toggle('mg',on);sp.classList.toggle('mf',on);sp.classList.toggle('mh',!on);if(on)s.classList.remove('mi','mj');else if(!s.classList.contains('mj')&&!s.classList.contains('mi'))s.classList.add(j>=4?'mj':'mi');});}
+const pad=n=>String(n).padStart(2,'0'),fmt=d=>`${d.getFullYear()}.${pad(d.getMonth()+1)}.${pad(d.getDate())}`,TODAY=new Date(2026,5,24);
+function openDate(){openPop(dateBox,p=>{p.innerHTML='<div class="dates"><input type="date" aria-label="시작일"> ~ <input type="date" aria-label="종료일"><button class="apply">적용</button></div>';
+  const [a,b]=$$('input',p);$('.apply',p).onclick=()=>{if(!a.value||!b.value){toast('시작일과 종료일을 모두 골라 주세요.');return;}if(a.value>b.value){toast('시작일이 종료일보다 늦어요. 다시 골라 주세요.');return;}
+    dateText.textContent=a.value.replaceAll('-','.')+'~'+b.value.replaceAll('-','.');selSeg(5);closePop();};});}
+dateBox.addEventListener('click',openDate);
+segs.forEach((s,i)=>{s.dataset.pop='1';s.addEventListener('click',()=>{selSeg(i);if(i===5){openDate();return;}const d=new Date(TODAY);[()=>d.setDate(d.getDate()),()=>d.setDate(d.getDate()-6),()=>d.setMonth(d.getMonth()-1),()=>d.setMonth(d.getMonth()-3),()=>d.setFullYear(d.getFullYear()-1)][i]();dateText.textContent=fmt(d)+'~'+fmt(TODAY);});});
+
+/* ---- 탭 / 하위 탭 ---- */
+const tabs=$$(N('main-menu')+' > '+N('tab')), sub=$(N('sub-menu'));
+tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>{const on=x===t;x.classList.remove('mt','mv','mw');x.classList.add(on?'mv':'mw');const s=x.querySelector('span');s.classList.toggle('mu',on);s.classList.toggle('ms',!on);});
+  sub.style.display=t.textContent.trim()==='기업'?'':'none';if(t.textContent.trim()!=='기업')toast('예시 화면은 기업 탭 리포트만 있어요. 표는 그대로 보여 드려요.');}));
+const subs=$$(N('service-sub-tab-btn'));
+subs.forEach(s=>s.addEventListener('click',()=>subs.forEach(x=>{const on=x===s;x.classList.toggle('m17',on);x.classList.toggle('m19',!on);const sp=x.querySelector('span');sp.classList.toggle('m16',on);sp.classList.toggle('m18',!on);})));
+
+/* ---- 쪽 넘기기 ---- */
+const pbtns=$$(N('pagination-btn'));
+function setPage(n){pbtns.forEach((b,i)=>{const on=i+1===n;b.classList.toggle('m2l',on);b.classList.toggle('m2n',!on);const s=b.querySelector('span');s.classList.toggle('m2k',on);s.classList.toggle('m2m',!on);});}
+function goPage(n){const max=Math.max(1,Math.ceil((st.total||0)/st.size));if(n<1)n=1;if(n>max){toast(`예시 화면은 리포트 ${st.total}건이라 ${max}쪽까지 있어요.`);return;}st.page=n;setPage(n);apply();}
+pbtns.forEach((b,i)=>b.addEventListener('click',()=>goPage(i+1)));
+function arrowClick(e,left){const r=e.currentTarget.getBoundingClientRect();const x=e.clientX-r.left;const far=left?x<30:x>30;
+  if(left)goPage(far?1:st.page-1);else goPage(far?Math.ceil(st.total/st.size):st.page+1);}
+$(N('left-arrow')).addEventListener('click',e=>arrowClick(e,true));$(N('right-arrow')).addEventListener('click',e=>arrowClick(e,false));
+
+/* ---- 제목 누르면 읽음 ---- */
+list.addEventListener('click',e=>{const sp=e.target.closest(N('cell-text-link')+' > span:last-child');if(!sp||sp.parentElement!==sp.closest(N('row')).children[2])return;
+  if(sp.parentElement.querySelector(N('service-tag')+' span')){toast('본문 제한 리포트예요. 플랜 구독 뒤에 볼 수 있어요.');return;}
+  sp.style.color='#9195a1';toast('리포트를 열었어요. 읽은 리포트는 제목이 흐려져요.');});
+
+/* ---- 왼쪽 메뉴 즐겨찾기 별 ---- */
+$$(N('menu/ui-icon-action')).forEach(s=>s.addEventListener('click',e=>{e.stopPropagation();const u=s.querySelector('use');const on=u.getAttribute('href')!=='#ls8f';u.setAttribute('href',on?'#ls8f':'#ls8');
+  const name=s.closest(N('menu/item-2d-menu')).textContent.trim();toast(on?`${name}을(를) 즐겨찾기에 넣었어요.`:`${name}을(를) 즐겨찾기에서 뺐어요.`);}));
+
+/* ---- 오른쪽 종목 추가 ---- */
+const items=$$(N('stock-item'));
+items.forEach(it=>{it.addEventListener('click',()=>items.forEach(x=>{const on=x===it;x.classList.toggle('rm',on);x.classList.toggle('rj',!on);const n=x.querySelector(N('info')+' span');n.classList.toggle('rl',on);n.classList.toggle('rd',!on);}));
+  const h=it.querySelector(N('menu/ui-icon-favorite'));h.addEventListener('click',e=>{e.stopPropagation();const u=h.querySelector('use');const on=u.getAttribute('href')!=='#rs6';u.setAttribute('href',on?'#rs6':'#rs3');
+    const n=it.querySelector(N('info')).textContent.trim();toast(on?`${n}을(를) 관심 종목에 넣었어요.`:`${n}을(를) 관심 종목에서 뺐어요.`);});});
+const rPh=$(N('home-search-bar')+' '+N('placeholder')+' span')||$(N('home-search-bar')+' span');
+const rInp=makeInput(rPh,'종목명, 종목코드 검색',()=>{});
+rInp.addEventListener('input',()=>{const v=rInp.value.trim();items.forEach(x=>{x.parentElement.style.display=!v||x.textContent.includes(v)?'':'none';});});
+
+/* ---- 그 밖의 버튼 ---- */
+const T={'btn-login':'로그인 화면으로 이동해요.','btn-ot-primary':'서비스 소개로 이동해요.','btn-fill-primary':'플랜 구독 화면으로 이동해요.','btn-uiform':'리포트 스크리너로 이동해요.'};
+Object.entries(T).forEach(([k,m])=>{const el=$(N(k));if(el)el.addEventListener('click',()=>toast(m));});
+$$(N(' menu-ui-icon')).forEach(m=>m.addEventListener('click',()=>toast(`${m.textContent.trim()} 메뉴를 열어요.`)));
+$$(N('menu/item-2d-menu')).forEach(m=>m.addEventListener('click',()=>toast(`${m.textContent.trim()} 화면으로 이동해요.`)));
+
+/* ---- 즐겨찾기 별·관심 하트: 마우스 올리면 회색 채움(피그마 hover 상태) ---- */
+function hoverIcon(el,base,hov,act){const u=el.querySelector('use');el.addEventListener('mouseenter',()=>{if(u.getAttribute('href')!==act)u.setAttribute('href',hov);});el.addEventListener('mouseleave',()=>{if(u.getAttribute('href')!==act)u.setAttribute('href',base);});}
+$$(N('menu/ui-icon-action')).forEach(s=>hoverIcon(s,'#ls8','#ls8h','#ls8f'));
+$$(N('menu/ui-icon-favorite')).forEach(h=>hoverIcon(h,'#rs3','#rs5','#rs6'));
+
+apply();
+</script>
+</body>
+</html>
