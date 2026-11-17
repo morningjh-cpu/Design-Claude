@@ -1,8 +1,35 @@
 # HANDOFF — 이 파일은 clear 전에 항상 최신으로 덮어쓴다 (이 줄 포함)
 
-기준: 2026-11-11 (마지막 작업: 회사 PC IMORNING02)
+기준: 2026-11-17 (마지막 작업: 회사 PC IMORNING02)
 
 ## 현재 상태
+### 피그마 — 와이즈 컴포넌트 테스트 (파일 jey6PXIFB19gl5et1XzIzi, 디자인시스템 구조화 = phase-3)
+- 방향(사용자 결정, 2026-11-13): 큰 틀은 KRDS(시작하기 / 디자인 스타일 / 컴포넌트 / 패턴), 부품 분류는 Ant Design 6묶음(일반 · 틀 · 탐색 · 입력 · 데이터 표시 · 피드백). 저장값·부품 이름은 안 바꿈 → plan/phase-3/01~03
+- 2026-11-13 실행 끝: 패턴 139개를 6묶음 새 구역으로 전부 옮김(화면 번호 꼬리표 붙임, 옛 구역 14개는 보관 페이지), 공통 컴포넌트 132개는 기존 9묶음을 6묶음 구역 안에 넣음 → plan/phase-3/04
+- 2026-11-13 새 페이지 `📍 시작하기`(16013:6)에 시작하기 안내 문서(16013:7)와 부품 설명 틀(16013:172, 빈 틀) 만듦 → plan/phase-3/05
+- 2026-11-13 새 페이지 `📘 부품 설명`(16015:6)에 버튼 8개 설명 문서 만듦(사용 규칙 칸은 빈칸 — 사용자가 적을 것). 채우다 본 것: btn-fill-tertiary·btn-login 의 name 값이 부품 이름과 다름 등 → plan/phase-3/06
+- 2026-11-13 name 값 고침(사용자 결정: name 값은 부품 이름과 같아야 함): btn-fill-tertiary 15종류, btn-login 2종류. 같은 어긋남이 다른 묶음 19곳에 더 있음(안 고침, 목록은 plan/phase-3/06)
+- 2026-11-13 나머지도 맞춤: 15묶음 144종류. 남긴 4묶음 = txet-btn · anlysis-info(부품 이름 오타) · Component(임시 이름) · icon/symbol-aothor-house(둘 다 오타) → plan/phase-3/06
+- 2026-11-13 오타 부품 이름 3개 고침(사용자 승인): txet-btn → text-btn, anlysis-info → analysis-info, icon/symbol-aothor-house → icon/symbol-author-house (name 값도 맞춤). 개발 쪽에 알려야 함
+- 2026-11-13 `Component`(7216:82201) → `symbol-box` 로 이름·name 값 바꿈(사용자 선택). name 값 어긋난 묶음 0곳
+- 2026-11-13 부품 설명 입력 3개 · 선택 17개 추가(같은 페이지, 구역 16021:149 · 16022:794). 지금 설명 문서 28장. 상태 뜻을 모르는 칸은 "—"로 둠 → plan/phase-3/07
+- 2026-11-13 (사용자 퇴근, 자동 진행 승인) 부품 설명 나머지 전체 채움: 지금 구역 36개 · 문서 213장(공통 78 + 아이콘·로고 목록 1, 패턴 134. 작업용 표시 5개는 제외) → plan/phase-3/08
+- 다음(사용자): 결과 확인 · 사용 규칙과 빈 상태 설명 적기 · 패턴 부품 용도 한 줄(135장 비어 있음) · 서체 바꾸기 플러그인 · 바뀐 부품 이름 4개 개발 쪽 전달 · 올리려면 "cmt"
+- 2026-11-17 종류 칸 이름 오타 7곳 고침(stste·staet·stete·stae → state, namr → name, stichy → sticky), `menu/menu-leftt-content` → `menu/menu-left-content`. `service-tag` 2묶음을 1묶음으로 합침(부가정보 쪽 7종류 = `type=ipo`, 묶음 4012:2828 · 18종류) → plan/phase-3/09
+- 2026-11-17 패턴 쪽 `bubble` → `chart-bubble`, `arrow-folter-down` → `arrow-filter-down` (사용자 결정) → plan/phase-3/09
+- 2026-11-17 패턴 쪽 `dropdown-list` → `search-dropdown-list` (사용자 결정). 같은 이름 묶음 0쌍. chart-bubble · search-dropdown-list 에 name 칸도 넣음
+- 2026-11-17 버튼 설명 문서 8장의 `부품 모습`을 격자로 다시 놓음(가로 = size, 세로 = state), 줄·칸 이름표도 붙임. 나머지 문서는 그대로 → plan/phase-3/10
+- 2026-11-17 입력폼 규칙(사용자): 부품 모습은 type 별 묶음, 상태 순서는 default · hover · focused · typing · typed · disabled · error. 본보기 = 사용자가 고친 home-search-bar 문서. input-base 에 적용, 입력 3장의 상태 표 순서도 맞춤 → plan/phase-3/11
+- 2026-11-17 service-search-bar 의 show-chip 두 묶음도 순서 맞춤(typed 를 뒤로). show-chip 묶음에 default 가 없는 건 기본 상태와 같아서(사용자 설명)
+- 2026-11-17 선택 17장에도 적용(type 별 묶음 + 상태 순서 + 이름표). 넓은 4장(box-date-select · box-text-select · dropdown-ui-list · input-select)은 격자 대신 상태별 줄바꿈 나열 → plan/phase-3/12
+- 2026-11-17 사용자: 테스트는 여기까지. 원본 파일 적용 방안 정리 → plan/phase-3/13 (추천 = 원본에서 단계별로 다시 실행: 0 준비·비교 → 1 구조 → 2 이름 정리 → 3 문서 → 4 마무리). 실행은 아직 안 함
+- 멈춘 이유(사용자): 원본 파일에 부품이 계속 추가되는 중. 그래서 복사본을 원본으로 삼는 길은 뺌, 원본용 도구는 이름으로 찾게 짜야 함
+- 2026-11-17 사용자 결정: 원본 작업 전까지 새 부품에는 정해진 규칙을 미리 씀 → plan/phase-3/14 (한 장 규칙)
+- 다음(사용자가 정할 것): 원본 작업 시점 · 원본 파일 주소 · 이름 정리 시점 · AI 가 정한 규칙 5가지 그대로 쓸지
+- (테스트 파일에 남은 것) 입력 3장(home-search-bar 등) 묶음에 이름표를 붙일지, 선택 17장·패턴 쪽에도 넓힐지. 격자 정렬을 다른 문서에도 할지. ` menu-ui-icon` 이름 앞 빈칸, `charge-type` 의 칸 이름 `Property 1` 도 그대로
+- 개발 쪽에 알릴 것: 바뀐 부품 이름 8개(text-btn · analysis-info · icon/symbol-author-house · symbol-box · menu/menu-left-content · chart-bubble · arrow-filter-down · search-dropdown-list), 바뀐 칸 이름 7곳, service-tag 의 type=ipo. 꼬리표·문서 글자는 Noto Sans KR(서체 바꾸기 플러그인 필요)
+- KRDS 파일: EnoDStsuDByOcdrMOUqwiI (읽기만)
+
 ### 저장소
 - Design-Claude: 깃허브 morningjh-cpu/Design-Claude (공개 — 사용자 확인: 공개 문제없음). 이전 커밋 3adf3e7(2026-11-06 push, 간격 되돌림·개선안 10개·통합 조회 HTML). 2026-11-11 HANDOFF 고침 커밋·push(피그마 lg 버튼 높이 수정 기록)
 - 홈 저장소: ~/.claude/skills = 깃허브 morningjh-cpu/my-claude-home (비공개). 스킬 + 공통설정 + 홈 파일 + 도구 + 저장소 목록. 상세는 그 저장소 `설치-안내.md`. 2026-11-02 10ef952(VS Code 글자 크기·확대 공통 적용) push 완료
@@ -46,6 +73,14 @@
   - 부품 원본 lg 높이는 둘 다 이미 48. 처음 조사 때 62개였는데 중간에 누가 원본 쪽(card-payment-summary·card-my-plan·dialog-action confirm)을 먼저 고쳐 48개만 남아 있었음
   - 확인: btn-fill-primary lg 71개는 부모 상자 밖으로 나감·새로 겹침 0(숫자 점검). 화면 캡처는 너무 작아 1px 차이는 못 봄. btn-ot-primary 6개는 넘침 점검 안 함(사용자가 안 해도 된다고 함)
   - 되돌리기: 피그마 버전 기록
+- 2026-11-11 "플랜 구독" 화면 디자인 개선안 (14번 페이지 `design` 구역 14508:56306, 원본 `디자인수정` 14508:56039 — 원본은 안 건드림)
+  - 사용 스킬 4개: impeccable · taste-skill · ui-ux-pro-max · frontend-design (웹 코드용이라 피그마에선 방향·기준만 가져옴)
+  - 1차 스킬별 2안씩 8안 → 사용자가 6개 지운 듯(내가 지운 것 아님): 남은 것 [impeccable-1] 정돈형, [frontend-design-2] 한 점 집중형
+  - 2차 두 스킬 짝 6쌍×2안 = 12안: 원본 아래 3줄(y 2889·4033·5177). 이름 `[A×B-1/2] …`
+  - 3차 네 스킬 모두 조합 2안: `[모두 조합-1] 보라 간행물·접근성형`, `[모두 조합-2] 무채색 장부·청록 요약 블록형` (y 6321 줄). 구역 높이 7700으로 늘림
+  - 공통: 글꼴은 Wanted Sans 대신 Noto Sans KR 등으로 바뀜(고른 안은 글꼴 되돌려야 함), 문구·버튼 추가 없음, 결제하기 버튼 높이 48 유지, 카드 아래 여백 20 이상
+  - 주의: 구역 안 좌표는 음수 → 위치 계산에서 최댓값 초기값은 -Infinity (0이면 틀어짐). 복사본(clone)은 페이지 맨 위로 생기니 만든 뒤 구역에 appendChild 하고 x·y 다시 지정
+  - 다음: 사용자가 안 고르기(고른 안은 글꼴·간격 저장값 연결 정리 필요)
 
 ### 스킬
 - 설치·설명서: 홈 저장소 ~/.claude/skills/Skills-list/ (설치한-스킬-목록, 00 상황별 찾기, 01~17) → plan/phase-1/08
