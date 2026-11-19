@@ -1,36 +1,10 @@
 # HANDOFF — 이 파일은 clear 전에 항상 최신으로 덮어쓴다 (이 줄 포함)
 
-기준: 2026-11-17 (마지막 작업: 회사 PC IMORNING02)
+기준: 2026-11-19 (마지막 작업: 회사 PC IMORNING02 — 디자인시스템을 WiseReport-DS 로 떼어 냄)
 
 ## 현재 상태
-### 피그마 — 와이즈 컴포넌트 테스트 (파일 jey6PXIFB19gl5et1XzIzi, 디자인시스템 구조화 = phase-3)
-- 방향(사용자 결정, 2026-11-13): 큰 틀은 KRDS(시작하기 / 디자인 스타일 / 컴포넌트 / 패턴), 부품 분류는 Ant Design 6묶음(일반 · 틀 · 탐색 · 입력 · 데이터 표시 · 피드백). 저장값·부품 이름은 안 바꿈 → plan/phase-3/01~03
-- 2026-11-13 실행 끝: 패턴 139개를 6묶음 새 구역으로 전부 옮김(화면 번호 꼬리표 붙임, 옛 구역 14개는 보관 페이지), 공통 컴포넌트 132개는 기존 9묶음을 6묶음 구역 안에 넣음 → plan/phase-3/04
-- 2026-11-13 새 페이지 `📍 시작하기`(16013:6)에 시작하기 안내 문서(16013:7)와 부품 설명 틀(16013:172, 빈 틀) 만듦 → plan/phase-3/05
-- 2026-11-13 새 페이지 `📘 부품 설명`(16015:6)에 버튼 8개 설명 문서 만듦(사용 규칙 칸은 빈칸 — 사용자가 적을 것). 채우다 본 것: btn-fill-tertiary·btn-login 의 name 값이 부품 이름과 다름 등 → plan/phase-3/06
-- 2026-11-13 name 값 고침(사용자 결정: name 값은 부품 이름과 같아야 함): btn-fill-tertiary 15종류, btn-login 2종류. 같은 어긋남이 다른 묶음 19곳에 더 있음(안 고침, 목록은 plan/phase-3/06)
-- 2026-11-13 나머지도 맞춤: 15묶음 144종류. 남긴 4묶음 = txet-btn · anlysis-info(부품 이름 오타) · Component(임시 이름) · icon/symbol-aothor-house(둘 다 오타) → plan/phase-3/06
-- 2026-11-13 오타 부품 이름 3개 고침(사용자 승인): txet-btn → text-btn, anlysis-info → analysis-info, icon/symbol-aothor-house → icon/symbol-author-house (name 값도 맞춤). 개발 쪽에 알려야 함
-- 2026-11-13 `Component`(7216:82201) → `symbol-box` 로 이름·name 값 바꿈(사용자 선택). name 값 어긋난 묶음 0곳
-- 2026-11-13 부품 설명 입력 3개 · 선택 17개 추가(같은 페이지, 구역 16021:149 · 16022:794). 지금 설명 문서 28장. 상태 뜻을 모르는 칸은 "—"로 둠 → plan/phase-3/07
-- 2026-11-13 (사용자 퇴근, 자동 진행 승인) 부품 설명 나머지 전체 채움: 지금 구역 36개 · 문서 213장(공통 78 + 아이콘·로고 목록 1, 패턴 134. 작업용 표시 5개는 제외) → plan/phase-3/08
-- 다음(사용자): 결과 확인 · 사용 규칙과 빈 상태 설명 적기 · 패턴 부품 용도 한 줄(135장 비어 있음) · 서체 바꾸기 플러그인 · 바뀐 부품 이름 4개 개발 쪽 전달 · 올리려면 "cmt"
-- 2026-11-17 종류 칸 이름 오타 7곳 고침(stste·staet·stete·stae → state, namr → name, stichy → sticky), `menu/menu-leftt-content` → `menu/menu-left-content`. `service-tag` 2묶음을 1묶음으로 합침(부가정보 쪽 7종류 = `type=ipo`, 묶음 4012:2828 · 18종류) → plan/phase-3/09
-- 2026-11-17 패턴 쪽 `bubble` → `chart-bubble`, `arrow-folter-down` → `arrow-filter-down` (사용자 결정) → plan/phase-3/09
-- 2026-11-17 패턴 쪽 `dropdown-list` → `search-dropdown-list` (사용자 결정). 같은 이름 묶음 0쌍. chart-bubble · search-dropdown-list 에 name 칸도 넣음
-- 2026-11-17 버튼 설명 문서 8장의 `부품 모습`을 격자로 다시 놓음(가로 = size, 세로 = state), 줄·칸 이름표도 붙임. 나머지 문서는 그대로 → plan/phase-3/10
-- 2026-11-17 입력폼 규칙(사용자): 부품 모습은 type 별 묶음, 상태 순서는 default · hover · focused · typing · typed · disabled · error. 본보기 = 사용자가 고친 home-search-bar 문서. input-base 에 적용, 입력 3장의 상태 표 순서도 맞춤 → plan/phase-3/11
-- 2026-11-17 service-search-bar 의 show-chip 두 묶음도 순서 맞춤(typed 를 뒤로). show-chip 묶음에 default 가 없는 건 기본 상태와 같아서(사용자 설명)
-- 2026-11-17 선택 17장에도 적용(type 별 묶음 + 상태 순서 + 이름표). 넓은 4장(box-date-select · box-text-select · dropdown-ui-list · input-select)은 격자 대신 상태별 줄바꿈 나열 → plan/phase-3/12
-- 2026-11-17 사용자: 테스트는 여기까지. 원본 파일 적용 방안 정리 → plan/phase-3/13 (추천 = 원본에서 단계별로 다시 실행: 0 준비·비교 → 1 구조 → 2 이름 정리 → 3 문서 → 4 마무리). 실행은 아직 안 함
-- 멈춘 이유(사용자): 원본 파일에 부품이 계속 추가되는 중. 그래서 복사본을 원본으로 삼는 길은 뺌, 원본용 도구는 이름으로 찾게 짜야 함
-- 2026-11-17 사용자 결정: 원본 작업 전까지 새 부품에는 정해진 규칙을 미리 씀 → plan/phase-3/14 (한 장 규칙)
-- 이어서 할 때 붙여 넣을 문장: `디자인 일 하자. plan/phase-3/13 방안대로 디자인시스템을 원본 파일에 적용하려고 해. 원본 주소는 (링크), 이번엔 (0단계 비교만 / 1·3단계까지) 진행해줘.` — 새 부품 규칙이 헷갈릴 때는 `새 부품 규칙 보여줘`(plan/phase-3/14)
-- 2026-11-17 **원본 파일(HxECyUsoLnDxoSWSKophQn)에 이름 정리만 먼저 함**(사용자: 적용은 아직, 오타·name 일치만): 부품 이름 6개 · 종류 칸 이름 7곳 · name 값 23묶음. 어긋난 곳 0. 구조·문서·합치기는 안 함 → plan/phase-3/15. 이어서 패턴 쪽 `bubble` → `chart-bubble`, `dropdown-list` → `search-dropdown-list` 도 바꾸고 name 칸도 넣음. 안 쓰는 `dropdown-list-simple`(쓰는 곳 0)은 보관 페이지로 옮김(원래 자리는 15번 파일). `td-first-text` 의 안 쓰는 horizontal 16종류도 보관 페이지에 `td-first-text (horizontal)` 묶음으로 옮김. **바로잡음: "안 쓰는"은 틀렸음 — 화면 64곳(5. 기업분석 46, 10. 부가정보 18)이 그 horizontal 을 쓰고 있음**(겹쳐 들어간 것을 못 센 탓, 화면은 안 깨짐). → 사용자 결정으로 원래 묶음에 되돌림: 새 칸 `direction`(vertical · horizontal) 추가, 지금 32종류(name · type · state · info · unit · direction), 보관 쪽 묶음은 없어짐 → plan/phase-3/15. 교훈: 쓰인 곳은 화면 인스턴스를 하나씩 확인해서 셀 것(getInstancesAsync 는 겹친 것을 놓침). 원본에 남은 것: 같은 이름 1쌍(service-tag), ` menu-ui-icon` 앞 빈칸, charge-type `Property 1`. 개발 쪽 전달 필요
-- 다음(사용자가 정할 것): 원본 작업 시점 · 원본 파일 주소 · 이름 정리 시점 · AI 가 정한 규칙 5가지 그대로 쓸지
-- (테스트 파일에 남은 것) 입력 3장(home-search-bar 등) 묶음에 이름표를 붙일지, 선택 17장·패턴 쪽에도 넓힐지. 격자 정렬을 다른 문서에도 할지. ` menu-ui-icon` 이름 앞 빈칸, `charge-type` 의 칸 이름 `Property 1` 도 그대로
-- 개발 쪽에 알릴 것: 바뀐 부품 이름 8개(text-btn · analysis-info · icon/symbol-author-house · symbol-box · menu/menu-left-content · chart-bubble · arrow-filter-down · search-dropdown-list), 바뀐 칸 이름 7곳, service-tag 의 type=ipo. 꼬리표·문서 글자는 Noto Sans KR(서체 바꾸기 플러그인 필요)
-- KRDS 파일: EnoDStsuDByOcdrMOUqwiI (읽기만)
+### 디자인시스템 → 새 저장소로 옮김 (2026-11-19)
+- 디자인시스템 관리는 `~/my-projects/WiseReport-DS` 에서 한다(옛 plan/phase-2/01~20 → 그쪽 phase-1, 옛 phase-3 → 그쪽 phase-2, out/ds-inventory·scripts/ds_inventory_report.py 도). 이어서 할 상태·다음 할 일은 그 저장소 HANDOFF.md
 
 ### 저장소
 - Design-Claude: 깃허브 morningjh-cpu/Design-Claude (공개 — 사용자 확인: 공개 문제없음). 이전 커밋 3adf3e7(2026-11-06 push, 간격 되돌림·개선안 10개·통합 조회 HTML). 2026-11-11 HANDOFF 고침 커밋·push(피그마 lg 버튼 높이 수정 기록)
@@ -96,12 +70,9 @@
 - **통합 조회 HTML (plan/phase-2/22·23)**: 피그마 `디자인-` 페이지의 `이걸로 HTML 만들어봐`(14294:77567)를 그대로 옮긴 판 `out/통합조회-v2/index.html`. 피그마에서 뽑은 조각 `parts/*.txt` + `template.html`(동작 스크립트) → `py -3 build.py`. 2026-11-06 바뀐 별(menu/ui-icon-action)·하트(menu/ui-icon-favorite) 아이콘 반영(`update_icons.py`, 기본·hover·선택 3상태). 버튼 동작은 직접 눌러 본 확인 아직 → 사용자 확인 대기. 화면이 또 바뀌면 같은 변환 스크립트로 해당 영역만 다시 뽑기(23번 파일에 방법)
   - 사용자가 정할 것: 첫 판 `out/통합조회`(선·아이콘 달라 안 씀)를 `_trash/` 로 옮길지
 - 통합 조회 개선안 10개(스킬 4개 혼자·둘씩 짝)를 `디자인-` 페이지에 만듦 — 고를 안 정하기. 새 글자는 Noto Sans KR 이라 고른 안은 글꼴 바꿔야 함. 3안(ui-ux-pro-max)은 어두운 화면이 파일 dark 색 묶음 미완성으로 깨져 글자 대비 안으로 바꿈 (plan/phase-2/21)
-- 간격 저장값 16개(spacing/space-*): 이제 쓰는 곳 없음(보관 페이지 3칸만). 지울지 남길지 사용자 결정 대기
 - 스킬 추천 받음 → vercel web-design-guidelines 는 설치 안 하기로(사용자, 2026-11-06. 코드 검사용이라 피그마 단계엔 안 맞음)
-- **간격 조정 되돌림(plan/phase-2/20, 2026-11-06)**: 사용자 요청으로 18번 간격 맞추기를 백업 값으로 원복 끝(부품 232칸 + 겹친 부품 539칸, 크기 방식도 백업대로). space-3·18·30 저장값은 남김. 간격 조정 뒤 만든 화면(ETF/ETN 페이지·디자인- 페이지 등) 목록은 20번 파일. 화면 크기 변화 없음. 그 화면 8개 이름 앞에 [간격조정후] 꼬리표 붙임. 그 뒤 간격 저장값 연결을 파일 전체(보관 제외)에서 풀고 같은 숫자로 넣음 — 저장값 16개는 남아 있지만 쓰는 곳 없음
 - **SVG 로고 워터마크(plan/phase-1/13)**: 저작권 문제로 그만둠(2026-11-05). 점검 전용 도구 scripts/svg_watermark_check.py 만 남김. 결과물·전체 도구는 _trash/watermark/
 - **로고 이미지 → 벡터(SVG) 변환 프로그램**: 새 저장소 ~/my-projects/logo-vectorizer 로 따로 진행(2026-11-05). 거기 HANDOFF 참고
-- **디자인시스템 구축(plan/phase-2)**: 테스트 파일 HxECyUsoLnDxoSWSKophQn 에서. 1~5단계 끝(03~09) + 피그마 표시(10) + 입력·선택 분리(11, 종류별 페이지 9개) + 백업에서 빠진 색 저장값 5개 넣음(12, bg-card-pinned 는 백업처럼 iris-15 로 되돌림). 사용자가 종류별 페이지를 `📒 공통 컴포넌트 / 패턴` 페이지 구역으로 합침(정리 기록 페이지도 없어짐). 부품 안 연결 안 된 색 조사(13, 잘못 이해) → 다른 파일 저장값에 걸린 색 1,168곳 찾음(14, 전체 페이지 끊긴 색 385곳 연결 + 같은 이름 없는 221곳 빨강 표시. 숨김 레이어·파운데이션·보관 제외. 남은 끊긴 색 ic-gr 1, tx-ddl-add 2). 글자 스타일(15): Wanted Sans 로 바뀜 → 부품 원본 345개 연결, 자간 스타일 10개 추가, 부품 원본 522 + 화면 1,409 글자 스타일 연결 끝 (줄간격 다른 2,279·스타일 없는 673 은 그대로). 점검 3차: out/ds-inventory/디자인시스템-점검-3차.html (어림 81/100), 모서리 213곳 연결(full 167 + 맞춤 46), 남은 직접 모서리 26 은 아이콘 안. 끊긴 색 모두 해결(tx-ddl-add 2개 → base/sub/indigo-500). 보관 페이지는 모든 점검·표시·제안에서 제외(사용자). 낱개 부품 9개도 묶음으로 바꿔 name 칸 채움. 안 쓰는 색 168개 unused 폴더로(19, tx-ddl-add 2개 포함), 화면 페이지 아직. 직접 넣은 흰색 313곳 저장값 연결(16), 검정 불투명 64곳(어림) 연결, 10% 테두리 42곳 bd-light, 남은 직접 검정 9곳 보라 표시. 부품 설명(17): 공통 컴포넌트 구역 전부(129+기존1) 달았다가 용도 한 줄로 줄임, 패턴 구역은 패스(사용자). 6단계 점검 2차: out/ds-inventory/디자인시스템-점검-2차.html (어림 69/100). name 칸은 일부러 둔 것 → 되살림·없던 26세트 추가·여러 값 4세트 1개로, 간격 1,171곳 가까운 값으로 맞춤(18), 그 뒤 space-3 저장값 추가하고 백업에서 3이던 213칸 space-3 으로 되돌림, space-18 추가(21칸), 백업과 크기 다른 부품 너비·높이 원래대로(같으면 내용 맞춤, 아니면 고정), footer copyright 위 여백 0. 부품 설명은 용도 한 줄로 줄임. 사용자가 직접 checkbox·switch hover 추가, radio 작업 중(state=New value/New hover). 남은 것: tag-basic·btn-login·filter-reset 비활성 색, 검정·흰색 용도, 부품 설명, 글자 스타일(Wanted Sans로 바꾼 뒤 연결)
 - 공지사항 목록 5안(plan/phase-1/12) 사용자 확인 → 고른 안 다듬기, 상세 화면에도 맞출지 정하기
 - 새 글자를 넣는 작업은 Noto Sans로 하고, 끝나면 서체 바꾸기 플러그인 링크를 드리기(교훈 칸 참고)
 - 공지사항 관리자 글쓰기·수정 화면(plan/phase-1/11) 사용자 확인 → 수정 반영
